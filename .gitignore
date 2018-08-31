@@ -1,6 +1,6 @@
 
 diferencias.txt
 errors.txt
-x2_reass.lst
+*.lst
 VBinDiff.exe
 *.bin
