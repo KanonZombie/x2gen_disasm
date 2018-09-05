@@ -6,9 +6,11 @@ REM fixheadr.exe x2_reasm.bin
 
 IF EXIST VBinDiff.exe VBinDiff "X-Men 2 - Clone Wars (W) [!].bin" "x2_reasm.bin"
 
-FC "X-Men 2 - Clone Wars (W) [!].bin" "x2_reasm.bin" > diferencias.txt
+REM FC "X-Men 2 - Clone Wars (W) [!].bin" "x2_reasm.bin" > diferencias.txt
 
 ECHO total lineas en diferencias: FC "X-Men 2 - Clone Wars (W) [!].bin" "x2_reasm.bin" | find /c /v ""
+
+analizador.exe  diferencias.txt x2_reasm.lst analisis.txt
 
 REM Expresiones para buscar en diferencias.txt
 
