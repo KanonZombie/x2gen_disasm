@@ -537,27 +537,11 @@
 0010B56A	0640 8C00                  	ADD.w	#$8C00, D0
 001115D2	0680 FFFF EC00             	ADD.l	#$FFFFEC00, D0
 001115E2	0680 FFFF CE00             	ADD.l	#$FFFFCE00, D0
-001117C6	0000                       	dc.w	(loc_001117DC-loc_001117C6-2)
-001117C8	0000                       	dc.w	(loc_001117F0-loc_001117C6-2)
-001117CA	0000                       	dc.w	(loc_00111842-loc_001117C6-2)	;Predicted (Code target predicted at 0x111842)
-001117CC	0000                       	dc.w	(loc_001118B2-loc_001117C6-2)
-001117CE	0000                       	dc.w	(loc_001118D8-loc_001117C6-2)
-001117D0	0000                       	dc.w	(loc_00111920-loc_001117C6-2)
-001117D2	0000                       	dc.w	(loc_001119B2-loc_001117C6-2)
-001117D4	0000                       	dc.w	(loc_00111A00-loc_001117C6-2)
-001117D6	0000                       	dc.w	(loc_00111A9A-loc_001117C6-2)
-001117D8	0000                       	dc.w	(loc_00111ABA-loc_001117C6-2)
-001117DA	0000                       	dc.w	(loc_00111B50-loc_001117C6-2)
 00111970	0680 0000 01A4             	ADD.l	#$000001A4, D0
 00111A52	0680 0000 01A4             	ADD.l	#$000001A4, D0	;Predicted (Code-scan)
 00111B0C	0680 0000 01A4             	ADD.l	#$000001A4, D0
 00111D16	0640 0080                  	ADD.w	#$0080, D0
 00111D3C	0640 0080                  	ADD.w	#$0080, D0
-00112178	0000                       	dc.w	(loc_00112330-loc_00112178-2)
-0011217A	0000                       	dc.w	(loc_00112330-loc_00112178-2)
-0011217C	0000                       	dc.w	(loc_00112330-loc_00112178-2)
-0011217E	0000                       	dc.w	(loc_001121C6-loc_00112178-2)
-00112180	0000                       	dc.w	(loc_00112186-loc_00112178-2)	;Predicted (Code target predicted at 0x112186)
 0011238C	0440 0080                  	SUB.w	#$0080, D0
 00112770	0682 0000 00E0             	ADD.l	#$000000E0, D2
 00112808	0680 FFFF F300             	ADD.l	#$FFFFF300, D0
@@ -570,39 +554,10 @@
 00112DF6	0480 0000 0198             	SUB.l	#$00000198, D0	;Predicted (Code-scan)
 00112E04	0480 0000 0198             	SUB.l	#$00000198, D0
 00112E3E	0682 0000 0140             	ADD.l	#$00000140, D2	;Predicted (Code-scan)
-00113D58	0000                       	dc.w	(loc_00113DA0-loc_00113D4E-2)
-00113D5A	0000                       	dc.w	(loc_00113DA0-loc_00113D4E-2)
-00113D5C	0000                       	dc.w	(loc_00113DA0-loc_00113D4E-2)
-00113D5E	0000                       	dc.w	(loc_00113DA0-loc_00113D4E-2)
-00113FF4	0000                       	dc.w	(loc_00114008-loc_00113FF4-2)
-00113FF6	0000                       	dc.w	(loc_00114088-loc_00113FF4-2)
-00113FF8	0000                       	dc.w	(loc_00113FFC-loc_00113FF4-2)
-00113FFA	0000                       	dc.w	(loc_00113FFC-loc_00113FF4-2)
-001141BE	0000                       	dc.w	(loc_001141D2-loc_001141BE-2)
-001141C0	0000                       	dc.w	(loc_00114256-loc_001141BE-2)
-001141C2	0000                       	dc.w	(loc_001141C6-loc_001141BE-2)
-001141C4	0000                       	dc.w	(loc_001141C6-loc_001141BE-2)
 0011809C	0440 0010                  	SUB.w	#$0010, D0
 001180A6	0440 0010                  	SUB.w	#$0010, D0
 00118372	0640 0080                  	ADD.w	#$0080, D0
 00118392	0640 0080                  	ADD.w	#$0080, D0
-00118A52	0000                       	dc.w	(loc_00118A74-loc_00118A52-2)	;Predicted (Code target predicted at 0x118A74)
-00118A54	0000                       	dc.w	(loc_00118A7C-loc_00118A52-2)	;Predicted (Code target predicted at 0x118A7C)
-00118A56	0000                       	dc.w	(loc_00118A88-loc_00118A52-2)	;Predicted (Code target predicted at 0x118A88)
-00118A58	0000                       	dc.w	(loc_00118A9C-loc_00118A52-2)	;Predicted (Code target predicted at 0x118A9C)
-00118A5A	0000                       	dc.w	(loc_00118AB4-loc_00118A52-2)
-00118A5C	0000                       	dc.w	(loc_00118AC8-loc_00118A52-2)
-00118A5E	0000                       	dc.w	(loc_00118AE0-loc_00118A52-2)
-00118A60	0000                       	dc.w	(loc_00118B00-loc_00118A52-2)
-00118A62	0000                       	dc.w	(loc_00118B24-loc_00118A52-2)
-00118A64	0000                       	dc.w	(loc_00118B38-loc_00118A52-2)
-00118A66	0000                       	dc.w	(loc_00118B50-loc_00118A52-2)
-00118A68	0000                       	dc.w	(loc_00118B70-loc_00118A52-2)
-00118A6A	0000                       	dc.w	(loc_00118B94-loc_00118A52-2)
-00118A6C	0000                       	dc.w	(loc_00118BB4-loc_00118A52-2)
-00118A6E	0000                       	dc.w	(loc_00118BD6-loc_00118A52-2)
-00118A70	0000                       	dc.w	(loc_00118C00-loc_00118A52-2)
-00118A72	0000                       	dc.w	(loc_00118C2E-loc_00118A52-2)
 00119054	0640 0080                  	ADD.w	#$0080, D0
 00119070	0640 0080                  	ADD.w	#$0080, D0
 0011BCF0	0445 0060                  	SUB.w	#$0060, D5
@@ -616,16 +571,7 @@
 0011C32A	0440 0030                  	SUB.w	#$0030, D0
 0011C370	0640 0030                  	ADD.w	#$0030, D0
 0011C380	0440 0040                  	SUB.w	#$0040, D0
-0011C68C	0000                       	dc.w	(loc_0011C694-loc_0011C68C-2)
-0011C68E	0000                       	dc.w	(loc_0011C6A8-loc_0011C68C-2)
-0011C690	0000                       	dc.w	(loc_0011C6BC-loc_0011C68C-2)	;Predicted (Code target predicted at 0x11C6BC)
-0011C692	0000                       	dc.w	(loc_0011C6BC-loc_0011C68C-2)	;Predicted (Code target predicted at 0x11C6BC)
 0011D2E8	0680 0000 0140             	ADD.l	#$00000140, D0
-0011D9B6	0000                       	dc.w	(loc_0011D9D0-loc_0011D9B4-2)
-0011DB46	0000                       	dc.w	(loc_0011DB4E-loc_0011DB46-2)
-0011DB48	0000                       	dc.w	(loc_0011DB64-loc_0011DB46-2)
-0011DB4A	0000                       	dc.w	(loc_0011DBC6-loc_0011DB46-2)
-0011DB4C	0000                       	dc.w	(loc_0011DBDA-loc_0011DB46-2)
 0011DFCE	0440 0030                  	SUB.w	#$0030, D0
 0011DFDA	0640 0030                  	ADD.w	#$0030, D0
 0011E072	0440 0030                  	SUB.w	#$0030, D0
@@ -701,25 +647,12 @@
 00134A64	0440 00A0                  	SUB.w	#$00A0, D0
 00134A70	0640 00A0                  	ADD.w	#$00A0, D0
 00134A7C	0440 0080                  	SUB.w	#$0080, D0
-00134AD4	0000                       	dc.w	(loc_00134AE4-loc_00134AD4-2)
-00134AD6	0000                       	dc.w	(loc_00134AFA-loc_00134AD4-2)
-00134AD8	0000                       	dc.w	(loc_00134B10-loc_00134AD4-2)
-00134ADA	0000                       	dc.w	(loc_00134B26-loc_00134AD4-2)
-00134ADC	0000                       	dc.w	(loc_00134B42-loc_00134AD4-2)	;Predicted (Code target predicted at 0x134B42)
 00134B60	0680 0000 00A0             	ADD.l	#$000000A0, D0	;Predicted (Code-scan)
 00134D16	0640 0080                  	ADD.w	#$0080, D0
 00134D36	0640 0080                  	ADD.w	#$0080, D0
 0013502E	0646 00E8                  	ADD.w	#$00E8, D6
 0013503C	0445 00E8                  	SUB.w	#$00E8, D5
 001351C4	0681 0000 015E             	ADD.l	#$0000015E, D1
-00136DA6	0000                       	dc.w	(loc_00136DAE-loc_00136DA6-2)
-00136DA8	0000                       	dc.w	(loc_00136DC4-loc_00136DA6-2)
-00136DAA	0000                       	dc.w	(loc_00136DDA-loc_00136DA6-2)
-00136DAC	0000                       	dc.w	(loc_00136DF0-loc_00136DA6-2)
-001371C0	0000                       	dc.w	(loc_001371C8-loc_001371C0-2)
-001371C2	0000                       	dc.w	(loc_001371C8-loc_001371C0-2)
-001371C4	0000                       	dc.w	(loc_001371D8-loc_001371C0-2)
-001371C6	0000                       	dc.w	(loc_00137200-loc_001371C0-2)
 0013836E	0480 0000 00C8             	SUB.l	#$000000C8, D0
 0013838E	0684 0000 00C8             	ADD.l	#$000000C8, D4
 00138CFE	0480 0000 1300             	SUB.l	#$00001300, D0
@@ -727,10 +660,6 @@
 00138D36	0481 0000 2F00             	SUB.l	#$00002F00, D1
 00138DD0	0484 0000 00C0             	SUB.l	#$000000C0, D4
 00138DE6	0685 0000 00C0             	ADD.l	#$000000C0, D5
-00138FB4	0000                       	dc.w	(loc_00138FBC-loc_00138FB4-2)
-00138FB6	0000                       	dc.w	(loc_00139038-loc_00138FB4-2)	;Predicted (Code target predicted at 0x139038)
-00138FB8	0000                       	dc.w	(loc_00138FF0-loc_00138FB4-2)
-00138FBA	0000                       	dc.w	(loc_0013906A-loc_00138FB4-2)
 0013AA7A	0640 0070                  	ADD.w	#$0070, D0
 0013AA98	0640 0079                  	ADD.w	#$0079, D0
 0013AAC2	0640 0078                  	ADD.w	#$0078, D0
@@ -773,24 +702,6 @@
 00144958	0641 008A                  	ADD.w	#$008A, D1
 0014498E	0640 0080                  	ADD.w	#$0080, D0
 001449B6	0441 FF87                  	SUB.w	#$FF87, D1
-00159384	0000                       	dc.w	(loc_00159398-loc_00159384-2)
-00159386	0000                       	dc.w	(loc_001593D4-loc_00159384-2)
-00159388	0000                       	dc.w	(loc_001593F2-loc_00159384-2)
-0015938A	0000                       	dc.w	(loc_00159410-loc_00159384-2)	;Predicted (Code target predicted at 0x159410)
-0015938C	0000                       	dc.w	(loc_0015942E-loc_00159384-2)	;Predicted (Code target predicted at 0x15942E)
-0015938E	0000                       	dc.w	(loc_0015944A-loc_00159384-2)	;Predicted (Code target predicted at 0x15944A)
-00159390	0000                       	dc.w	(loc_00159466-loc_00159384-2)	;Predicted (Code target predicted at 0x159466)
-00159392	0000                       	dc.w	(loc_00159482-loc_00159384-2)
-00159394	0000                       	dc.w	(loc_0015949C-loc_00159384-2)
-00159396	0000                       	dc.w	(loc_001593B6-loc_00159384-2)
-001594F2	0000                       	dc.w	(loc_00159502-loc_001594F2-2)	;Predicted (Code target predicted at 0x159502)
-001594F4	0000                       	dc.w	(loc_00159520-loc_001594F2-2)
-001594F6	0000                       	dc.w	(loc_0015953E-loc_001594F2-2)	;Predicted (Code target predicted at 0x15953E)
-001594F8	0000                       	dc.w	(loc_0015955C-loc_001594F2-2)	;Predicted (Code target predicted at 0x15955C)
-001594FA	0000                       	dc.w	(loc_00159578-loc_001594F2-2)	;Predicted (Code target predicted at 0x159578)
-001594FC	0000                       	dc.w	(loc_00159594-loc_001594F2-2)	;Predicted (Code target predicted at 0x159594)
-001594FE	0000                       	dc.w	(loc_001595B0-loc_001594F2-2)
-00159500	0000                       	dc.w	(loc_001595CA-loc_001594F2-2)	;Predicted (Code target predicted at 0x1595CA)
 0015B090	0640 0080                  	ADD.w	#$0080, D0
 0015B0AE	0640 0080                  	ADD.w	#$0080, D0
 0015B1C6	0200 0003                  	AND.b	#3, D0
@@ -800,15 +711,6 @@
 0015C35E	0640 0060                  	ADD.w	#$0060, D0
 0015C374	0640 0060                  	ADD.w	#$0060, D0
 0015C388	0640 0070                  	ADD.w	#$0070, D0
-0015C48C	0000                       	dc.w	(loc_0015C49E-loc_0015C48C-2)	;Predicted (Code target predicted at 0x15C49E)
-0015C48E	0000                       	dc.w	(loc_0015C4BA-loc_0015C48C-2)	;Predicted (Code target predicted at 0x15C4BA)
-0015C490	0000                       	dc.w	(loc_0015C4E2-loc_0015C48C-2)
-0015C492	0000                       	dc.w	(loc_0015C4FE-loc_0015C48C-2)	;Predicted (Code target predicted at 0x15C4FE)
-0015C494	0000                       	dc.w	(loc_0015C51A-loc_0015C48C-2)	;Predicted (Code target predicted at 0x15C51A)
-0015C496	0000                       	dc.w	(loc_0015C564-loc_0015C48C-2)	;Predicted (Code target predicted at 0x15C564)
-0015C498	0000                       	dc.w	(loc_0015C57E-loc_0015C48C-2)	;Predicted (Code target predicted at 0x15C57E)
-0015C49A	0000                       	dc.w	(loc_0015C598-loc_0015C48C-2)
-0015C49C	0000                       	dc.w	(loc_0015C5B2-loc_0015C48C-2)	;Predicted (Code target predicted at 0x15C5B2)
 0015D068	0640 0140                  	ADD.w	#$0140, D0
 0015D0E6	0640 001F                  	ADD.w	#$001F, D0	;Predicted (Code-scan)
 0015D14A	0640 003F                  	ADD.w	#$003F, D0	;Predicted (Code-scan)
@@ -835,10 +737,6 @@
 001B9E32	0447 0010                  	SUB.w	#$0010, D7
 001B9EA6	0440 00C8                  	SUB.w	#$00C8, D0	;Predicted (Code-scan)
 001B9EC0	0440 0040                  	SUB.w	#$0040, D0
-001CF3A4	0000                       	dc.w	(loc_001CF3AE-loc_001CF3A4-2)
-001CF3A6	0000                       	dc.w	(loc_001CF3C0-loc_001CF3A4-2)	;Predicted (Code target predicted at 0x1CF3C0)
-001CF3A8	0000                       	dc.w	(loc_001CF3C4-loc_001CF3A4-2)	;Predicted (Code target predicted at 0x1CF3C4)
-001CF3AA	0000                       	dc.w	(loc_001CF3C8-loc_001CF3A4-2)
 001CF490	0680 0000 0140             	ADD.l	#$00000140, D0
 001CF4A2	0687 0000 00E0             	ADD.l	#$000000E0, D7
 001CF59C	0640 0080                  	ADD.w	#$0080, D0
@@ -846,10 +744,6 @@
 001CF630	197C 00FF 000E             	MOVE.b	#$FF, $E(A4)
 001CF6AE	197C 00FF 000E             	MOVE.b	#$FF, $E(A4)
 001CF6B8	197C 00FF 000E             	MOVE.b	#$FF, $E(A4)
-001CF746	0000                       	dc.w	(loc_001CF74E-loc_001CF746-2)
-001CF748	0000                       	dc.w	(loc_001CF752-loc_001CF746-2)
-001CF74A	0000                       	dc.w	(loc_001CF758-loc_001CF746-2)
-001CF74C	0000                       	dc.w	(loc_001CF75C-loc_001CF746-2)
 001CF7A6	0440 FF84                  	SUB.w	#$FF84, D0
 001CF7DA	0440 FF84                  	SUB.w	#$FF84, D0
 001D0284	197C 00FF 000E             	MOVE.b	#$FF, $E(A4)
@@ -864,10 +758,6 @@
 001F1BDE	0680 0000 0080             	ADD.l	#$00000080, D0
 001F1BEA	0680 0000 0080             	ADD.l	#$00000080, D0
 001F310C	0680 0000 0250             	ADD.l	#$00000250, D0
-001F3FC4	0000                       	dc.w	(loc_001F3FCC-loc_001F3FC4-2)
-001F3FC6	0000                       	dc.w	(loc_001F3FDE-loc_001F3FC4-2)
-001F3FC8	0000                       	dc.w	(loc_001F3FD2-loc_001F3FC4-2)
-001F3FCA	0000                       	dc.w	(loc_001F3FD2-loc_001F3FC4-2)
 001F4CB8	4878 0000                  	PEA	$0.w
 001F539A	0640 0800                  	ADD.w	#$0800, D0	;Predicted (Code-scan)
 001F5980	0441 0060                  	SUB.w	#$0060, D1
