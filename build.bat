@@ -1,12 +1,29 @@
-REM @echo off
+@echo off
 
 SET binReasm=x2_reasm
 SET binOrigen=X-Men 2 - Clone Wars (W) [!]
 
-echo %binReasm%
-echo %binOrigen%
-
 IF EXIST %binReasm%.bin move /Y %binReasm%.bin %binReasm%.prev.bin >NUL
+
+ECHO(
+ECHO [104;93m**********************************************************************************[0m
+ECHO [104;93m*                                   ASM BUILD                                    *[0m
+
+SET "string=Nuevo bin : %binReasm%                                                           "
+SET "string=                                                           %string%"
+ECHO [104;93m* %string:~59,78% *[0m
+
+SET "string=Origen: %binOrigen%                                                           "
+SET "string=                                                           %string%"
+ECHO [104;93m* %string:~59,78% *[0m
+
+ECHO [104;93m**********************************************************************************[0m
+
+ECHO(
+ECHO [102;30m                                                                                  [0m
+ECHO [102;30m Ejecutando ASM68k                                                                [0m
+ECHO [102;30m                                                                                  [0m
+ECHO(
 
 asm68k /ow- /k /p /o ae- %binOrigen%.asm, %binReasm%.bin >errors.txt, , %binReasm%.lst
 
