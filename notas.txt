@@ -1,0 +1,15 @@
+BEAST
+    F6  1111 0110       -10
+NIGHTCRAWLER
+    F6  1111 0110       -10
+PSYLOCKE
+    F6  1111 0110       -10
+WOLVERINE
+    F6  1111 0110       -10
+MAGNETO
+    F2  1111 0010       -14
+CYCLOPS
+    F2  1111 0010       -14
+GAMBIT
+    F2  1111 0010       -14
+
