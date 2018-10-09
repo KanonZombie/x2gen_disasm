@@ -19,12 +19,12 @@
 	
 	MOVE.l	#vdp_write_tiles, (A5)	;Set vdp to write tiles
 
-	LEA	FuenteComprimida(PC), A0		;Carga ubicacion de los tiles
+	LEA	FuenteComprimida(PC), A0	;Carga ubicacion de los tiles
 
 	MOVE.w	#$003A, D0				;Pone 58 en D6 para loopear 59 veces
 	MOVE.l	#$10000000, D2			;Predicted (Code-scan)
 
-DescomprimirTile:								; inicio loop 59
+DescomprimirTile:							; inicio loop 59
 	MOVE.w	#7, D6							; Pone 7 en D6 para loopear 8 veces
 
 DescomprimirByteEnLongword:					; inicio loop 8 out
@@ -41,7 +41,7 @@ ArmarLongwordSegunBinario:
 SaltarSetear1:
 	DBF	D5, ArmarLongwordSegunBinario			; 8 veces (8 longwords forman tile)
 
-	MOVE.l	D4, (A4)						; mueve tile descomprimida
+	MOVE.l	D4, (A4)			    			; mueve tile descomprimida
 	DBF	D6, DescomprimirByteEnLongword			; Fin loop 8 veces out
 
 	DBF	D0, DescomprimirTile					; Loop 59 veces (0x3A = 58)
