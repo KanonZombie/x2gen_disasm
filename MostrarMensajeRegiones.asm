@@ -1,3 +1,22 @@
+	TST.w	vdp_control			; testea la VDP?
+	CLR.l	D0					; limpia d0 para empezar a trabajar
+	MOVE.b	$00A10001, D0		; Move Megadrive hardware version to d0
+	LSR.b	#6, D0				; left shift x 6 (por ej 0xA0 = 1010 0000 pasa a -> 0000 0010 -> 0x2 )
+	ANDI.b	#3, D0				; AND con 0011
+	LEA	ArrayRegiones(PC), A0	; Carga la direccion del array con las regiones 'J' ' ' 'U' 'E'
+	MOVE.b	(A0,D0.w), D0		; mueve el indice segun la region de hardware
+	TST.b	D0					; compara con cero
+	BEQ.w	Trampa				; si la consola no tiene region, pum
+
+	LEA	loc_000001F0, A0		; direccion de regiones declaradas en el encabezado
+	MOVE.w	#$000F, D1			; cantidad de caracteres en el encabezado de region
+
+	@LoopCadaRegionEncabezado:
+		CMP.b	(A0), D0					; compara contra la region detectada en hardware
+		BEQ.w	FinVerificacionRegion		; si coincide, sale
+		ADDQ.l	#1, A0						; suma 1 al indice de las regiones en encabezado
+		DBF	D1, @LoopCadaRegionEncabezado	; loop
+
 ;========================================================================================================
 ;========================================================================================================
 ;========================================================================================================
@@ -696,3 +715,4 @@ FuenteComprimida:
 	dc.b	$7F
 	dc.b	$00
 
+FinVerificacionRegion:

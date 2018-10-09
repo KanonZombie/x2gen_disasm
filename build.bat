@@ -17,7 +17,18 @@ SET "string=Origen: %binOrigen%                                                 
 SET "string=                                                           %string%"
 ECHO [104;93m* %string:~59,78% *[0m
 
+
 ECHO [104;93m**********************************************************************************[0m
+
+ECHO(
+ECHO [103;30m                                                                                  [0m
+ECHO [103;30m Compilando componentes (z80)                                                     [0m
+ECHO [103;30m                                                                                  [0m
+ECHO(
+
+yaza driverz80\driverz80.z80 > salidaZ80.txt
+
+REM ECHO [104;93m**********************************************************************************[0m
 
 ECHO(
 ECHO [102;30m                                                                                  [0m
@@ -40,6 +51,7 @@ ECHO [104;93m         .'J$$$$F  `::::: .::::    ` :::'  `
 ECHO [104;93m        .: ???):     `:: :::::                                                
 ECHO [104;93m        : :::::'        `                                                     
 ECHO [104;93m         ``                                                                   [0m
+
 ECHO(
 
 asm68k /ow- /k /p /o ae- %binOrigen%.asm, %binReasm%.bin >errors.txt, , %binReasm%.lst

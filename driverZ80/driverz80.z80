@@ -1,0 +1,3860 @@
+
+        ORG     0000h
+
+        ; Referenced from 0885
+        ; --- START PROC L0000 ---
+L0000:  DI
+        IM      1
+        LD      SP,1B20h
+        JP      L088A
+
+L0009:  NOP
+        NOP
+        NOP
+        NOP
+        RST     0x38
+
+L000E:  RST     0x38
+
+L000F:  RST     0x38
+
+L0010:  RST     0x38
+
+L0011:  NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+
+        ; Referenced from 01D9, 090C
+L0036:  NOP
+
+        ; Referenced from 01DD, 01F0, 0910
+L0037:  NOP
+        LD      (L003E),SP
+        RETI
+
+        ; Referenced from 0038
+L003E:  NOP
+        NOP
+
+        ; Referenced from 08CF, 08D6
+L0040:  NOP
+
+        ; Referenced from 0310, 0430, 08BE, 08CA, 08DC, 08FA, 0900, 0906, 0FAE, 11FD
+        ; --- START PROC L0041 ---
+L0041:  DI
+        PUSH    AF
+        PUSH    HL
+        LD      HL,003Fh
+        LD      A,(HL)
+        OR      A
+        JR      Z,L0062
+        LD      (HL),00h
+        INC     HL
+        INC     (HL)
+        CALL    L02B7
+        PUSH    DE
+        LD      HL,(L0885+2)    ; reference not aligned to instruction
+        LD      DE,(L0885)
+        ADD     HL,DE
+        LD      (L0885+2),HL    ; reference not aligned to instruction
+        POP     DE
+        CALL    L02B7
+
+        ; Referenced from 0049
+L0062:  POP     HL
+        POP     AF
+        EI
+        RET
+
+        ; Referenced from 08D9
+        ; --- START PROC L0066 ---
+L0066:  LD      IY,0009h
+        LD      HL,7F11h
+        LD      D,80h
+        LD      E,04h
+
+        ; Referenced from 0163
+L0071:  CALL    L02B7
+        LD      C,(IY+00h)
+        LD      (IY+00h),00h
+        BIT     2,C
+        JR      Z,L0098
+        LD      (IY+04h),0FFh
+        LD      (IY+28h),01h
+        LD      (IY+18h),00h
+        LD      A,01h
+        CP      E
+        JR      NZ,L0098
+        LD      IX,17ABh
+        RES     5,(IX+00h)
+
+        ; Referenced from 007D, 008E
+L0098:  BIT     1,C
+        JR      Z,L00AB
+        LD      A,(IY+18h)
+        CP      00h
+        JR      Z,L00AB
+        LD      (IY+28h),01h
+        LD      (IY+18h),04h
+
+        ; Referenced from 009A, 00A1
+L00AB:  BIT     0,C
+        JR      Z,L00C9
+        LD      (IY+04h),0FFh
+        LD      A,(IY+1Ch)
+        OR      D
+        LD      (HL),A
+        LD      A,01h
+        CP      E
+        JR      Z,L00C1
+        LD      A,(IY+20h)
+        LD      (HL),A
+
+        ; Referenced from 00BB
+L00C1:  LD      (IY+28h),01h
+        LD      (IY+18h),01h
+
+        ; Referenced from 00AD
+L00C9:  CALL    L02B7
+        LD      A,(IY+18h)
+        CP      00h
+        JP      Z,L015C
+        CP      01h
+        JR      NZ,L00FE
+        LD      (IY+28h),01h
+        LD      A,(IY+04h)
+        LD      B,(IY+24h)
+        SUB     (IY+08h)
+        JR      C,L00F4
+        JR      Z,L00F4
+        CP      B
+        JR      C,L00F4
+        JR      Z,L00F4
+        LD      (IY+04h),A
+        JP      L015C
+
+        ; Referenced from 00E5, 00E7, 00EA, 00EC
+L00F4:  LD      (IY+04h),B
+        LD      (IY+18h),02h
+        JP      L015C
+
+        ; Referenced from 00D6
+L00FE:  CP      02h
+        JP      NZ,L0132
+        LD      (IY+28h),01h
+        LD      A,(IY+04h)
+        LD      B,(IY+10h)
+        CP      B
+        JR      C,L011C
+        JR      Z,L0129
+        SUB     (IY+0Ch)
+        JR      C,L0129
+        CP      B
+        JR      C,L0129
+        JR      L0124
+
+        ; Referenced from 010E
+L011C:  ADD     A,(IY+0Ch)
+        JR      C,L0129
+        CP      B
+        JR      NC,L0129
+
+        ; Referenced from 011A
+L0124:  LD      (IY+04h),A
+        JR      L015C
+
+        ; Referenced from 0110, 0115, 0118, 011F, 0122
+L0129:  LD      (IY+04h),B
+        LD      (IY+18h),03h
+        JR      L015C
+
+        ; Referenced from 0100
+L0132:  CP      04h
+        JR      NZ,L015C
+        LD      (IY+28h),01h
+        LD      A,(IY+04h)
+        ADD     A,(IY+14h)
+        JR      C,L0147
+        LD      (IY+04h),A
+        JR      L015C
+
+        ; Referenced from 0140
+L0147:  LD      (IY+04h),0FFh
+        LD      (IY+18h),00h
+        LD      A,01h
+        CP      E
+        JR      NZ,L015C
+        LD      IX,17ABh
+        RES     5,(IX+00h)
+
+        ; Referenced from 00D1, 00F1, 00FB, 0127, 0130, 0134, 0145, 0152
+L015C:  INC     IY
+        LD      A,20h           ; ' '
+        ADD     A,D
+        LD      D,A
+        DEC     E
+        JP      NZ,L0071
+        CALL    L02B7
+        LD      IY,0009h
+        BIT     0,(IY+28h)
+        JR      Z,L0185
+        LD      (IY+28h),00h
+        LD      A,(IY+04h)
+        SRL     A
+        SRL     A
+        SRL     A
+        SRL     A
+        OR      90h
+        LD      (HL),A
+
+        ; Referenced from 0171
+L0185:  BIT     0,(IY+29h)
+        JR      Z,L019D
+        LD      (IY+29h),00h
+        LD      A,(IY+05h)
+        SRL     A
+        SRL     A
+        SRL     A
+        SRL     A
+        OR      0B0h
+        LD      (HL),A
+
+        ; Referenced from 0189
+L019D:  BIT     0,(IY+2Ah)
+        JR      Z,L01B5
+        LD      (IY+2Ah),00h
+        LD      A,(IY+06h)
+        SRL     A
+        SRL     A
+        SRL     A
+        SRL     A
+        OR      0D0h
+        LD      (HL),A
+
+        ; Referenced from 01A1
+L01B5:  BIT     0,(IY+2Bh)
+        JR      Z,L01CD
+        LD      (IY+2Bh),00h
+        LD      A,(IY+07h)
+        SRL     A
+        SRL     A
+        SRL     A
+        SRL     A
+        OR      0F0h
+        LD      (HL),A
+
+        ; Referenced from 01B9
+L01CD:  CALL    L02B7
+        RET
+
+        ; Referenced from 086C, 0917, 091F, 09A7, 09B1, 09B5, 09C5, 09CE, 09D7, 09DB, 0A09, 0A0C, 0A12, 0A1F, 0A37, 0A4B, 0A54, 0A62, 0A99, 0AB0, 0AD9, 0ADD, 0AE1, 0B16, 0B1C, 0B2B, 0B35, 0B72, 0B7B, 0F3E, 0F44, 1710
+        ; --- START PROC L01D1 ---
+L01D1:  PUSH    BC
+        PUSH    HL
+
+        ; Referenced from 01E1
+L01D3:  CALL    L02B7
+        CALL    L0302
+        LD      A,(L0036)
+        LD      B,A
+        LD      A,(L0037)
+        CP      B
+        JR      Z,L01D3
+        LD      B,00h
+        LD      C,A
+        LD      HL,1B40h
+        CALL    L02B7
+        ADD     HL,BC
+        INC     A
+        AND     3Fh             ; '?'
+        LD      (L0037),A
+        LD      A,(HL)
+        POP     HL
+        POP     BC
+        RET
+
+        ; Referenced from 0202, 020F, 0220
+L01F7:  NOP
+
+        ; Referenced from 022A
+L01F8:  NOP
+
+        ; Referenced from 0344, 0374, 03B7, 044C, 0BCE, 0BE3, 0E5A, 0E71, 1332, 172D, 1743
+        ; --- START PROC L01F9 ---
+L01F9:  CALL    L02B7
+        PUSH    IX
+        LD      IX,1B20h
+        LD      (L01F7),HL
+        RES     7,H
+        LD      B,00h
+        DEC     C
+        ADD     HL,BC
+        BIT     7,H
+        JR      NZ,L021A
+        LD      HL,(L01F7)
+        INC     C
+        LD      B,A
+        CALL    L023D
+        POP     IX
+        RET
+
+        ; Referenced from 020D
+L021A:  LD      B,A
+        PUSH    BC
+        PUSH    HL
+        LD      A,C
+        SUB     L
+        LD      C,A
+        LD      HL,(L01F7)
+        CALL    L023D
+        POP     HL
+        POP     BC
+        LD      C,L
+        INC     C
+        LD      A,(L01F8)
+        AND     80h
+        ADD     A,80h
+        LD      H,A
+        LD      L,00h
+        JR      NC,L0237
+        INC     B
+
+        ; Referenced from 0234
+L0237:  CALL    L023D
+        POP     IX
+        RET
+
+        ; Referenced from 0214, 0223, 0237
+        ; --- START PROC L023D ---
+L023D:  CALL    L02B7
+        PUSH    DE
+        LD      DE,6000h
+        LD      A,H
+        RLC     A
+        LD      (DE),A
+        LD      A,B
+        LD      (DE),A
+        RRA
+        LD      (DE),A
+        RRA
+        LD      (DE),A
+        RRA
+        LD      (DE),A
+        RRA
+        LD      (DE),A
+        RRA
+        LD      (DE),A
+        RRA
+        LD      (DE),A
+        RRA
+        LD      (DE),A
+        POP     DE
+        SET     7,H
+        LD      A,C
+        LD      B,00h
+        CALL    L02B7
+        SET     0,(IX+01h)
+        SUB     07h
+        JR      C,L027A
+
+        ; Referenced from 0278
+L0269:  LD      C,06h
+        BIT     0,(IX+00h)
+        JR      NZ,L028D
+
+        ; Referenced from 029E
+L0271:  LDIR
+        CALL    L02B7
+        SUB     06h
+        JR      NC,L0269
+
+        ; Referenced from 0267
+L027A:  ADD     A,07h
+        LD      C,A
+        BIT     0,(IX+00h)
+        JR      NZ,L02A0
+
+        ; Referenced from 02B1
+L0283:  LDIR
+        CALL    L02B7
+        RES     0,(IX+01h)
+        RET
+
+        ; Referenced from 026F
+L028D:  RES     0,(IX+01h)
+
+        ; Referenced from 0298
+L0291:  CALL    L02B7
+        BIT     0,(IX+00h)
+        JR      NZ,L0291
+        SET     0,(IX+01h)
+        JR      L0271
+
+        ; Referenced from 0281
+L02A0:  RES     0,(IX+01h)
+
+        ; Referenced from 02AB
+L02A4:  CALL    L02B7
+        BIT     0,(IX+00h)
+        JR      NZ,L02A4
+        SET     0,(IX+01h)
+        JR      L0283
+
+        ; Referenced from 02D1, 08B0
+L02B3:  NOP
+
+        ; Referenced from 02D7
+L02B4:  NOP
+
+        ; Referenced from 08B6, 13F5
+L02B5:  NOP
+        NOP
+
+        ; Referenced from 004F, 005F, 0071, 00C9, 0166, 01CD, 01D3, 01E9, 01F9, 023D, 025E, 0273, 0285, 0291, 02A4, 02D4, 02DA, 02E2, 02E7, 0314, 03CE, 03EF, 0410, 0429, 042D, 0472, 04A2, 0522, 07F5, 08AD, 08BB, 08C1, 08C7, 08E1, 0D60, 0EAB, 0EEA, 0FB5, 1026, 104C, 1089, 109F, 10BA, 10F4, 110B, 112C, 11E5, 12E6, 13D3, 13D8, 1425, 145F, 1666, 1676, 1685, 16B6, 16D8, 17CD, 1822
+        ; --- START PROC L02B7 ---
+L02B7:  JR      L02DF
+
+L02B9:  LD      (HL),27h        ; '''
+
+        ; Referenced from 02BD
+L02BB:  BIT     0,(HL)
+        JP      Z,L02BB
+        INC     L
+        LD      (HL),B
+        DEC     L
+        LD      A,(DE)
+
+        ; Referenced from 08B3, 13FC
+L02C4:  JR      L02EC
+
+L02C6:  NOP
+        INC     E
+
+        ; Referenced from 02F6
+L02C8:  LD      (HL),2Ah        ; '*'
+        INC     HL
+        LD      (HL),A
+        DEC     L
+        EX      AF,AF'
+        EXX
+
+        ; Referenced from 13E8
+L02CF:  RET
+
+L02D0:  EX      AF,AF'
+        LD      A,(L02B3)
+        LD      (L02B7),A
+        LD      A,(L02B4)
+        LD      (L02B7+1),A     ; reference not aligned to instruction
+        EX      AF,AF'
+        RET
+
+        ; Referenced from 02B7
+L02DF:  EX      AF,AF'
+        LD      A,0D9h
+        LD      (L02B7),A
+        LD      A,08h
+        LD      (L02B7+1),A     ; reference not aligned to instruction
+        EX      AF,AF'
+        RET
+
+        ; Referenced from 02C4
+L02EC:  RRC     C
+        JR      C,L02F8
+        RLA
+        RLA
+        RLA
+        RLA
+
+        ; Referenced from 02F9
+L02F4:  AND     0F0h
+        JR      L02C8
+
+        ; Referenced from 02EE
+L02F8:  INC     E
+        JR      L02F4
+
+        ; Referenced from 0304, 0335, 033B, 0365, 036B, 13BE
+L02FB:  NOP
+
+        ; Referenced from 033E, 0347, 0353, 036E, 0380, 0394, 03B0, 03BB, 03C4, 13AD
+L02FC:  NOP
+        NOP
+
+        ; Referenced from 0341, 034A, 0356, 0371, 0383, 0397, 03B3, 03BE, 03C7, 13B0
+L02FE:  NOP
+
+        ; Referenced from 0322, 0330, 039A, 03A6, 03AD, 13B6
+L02FF:  NOP
+        NOP
+
+        ; Referenced from 031A, 0378, 13CB, 1701
+L0301:  NOP
+
+        ; Referenced from 01D6, 03D1, 04A7, 08C4, 0D63, 11FA, 13BB
+        ; --- START PROC L0302 ---
+L0302:  RET
+
+L0303:  PUSH    AF
+        LD      A,(L02FB)
+        EXX
+        XOR     E
+        EXX
+        AND     80h
+        JR      NZ,L0314
+        POP     AF
+        RET
+
+        ; Referenced from 13CE
+        ; --- START PROC L0310 ---
+L0310:  CALL    L0041
+        PUSH    AF
+
+        ; Referenced from 030C
+L0314:  CALL    L02B7
+        PUSH    BC
+        PUSH    DE
+        PUSH    HL
+        LD      A,(L0301)
+        CP      07h
+        JP      NC,L03CC
+        LD      HL,(L02FF)
+        LD      BC,0080h
+        SCF
+        CCF
+        SBC     HL,BC
+        JR      C,L035C
+        JR      Z,L035C
+        LD      (L02FF),HL
+        LD      D,1Fh
+        LD      A,(L02FB)
+        LD      E,A
+        ADD     A,80h
+        LD      (L02FB),A
+        LD      HL,(L02FC)
+        LD      A,(L02FE)
+        CALL    L01F9
+        LD      HL,(L02FC)
+        LD      A,(L02FE)
+        LD      BC,0080h
+        ADD     HL,BC
+        ADC     A,00h
+        LD      (L02FC),HL
+        LD      (L02FE),A
+        JP      L03EA
+
+        ; Referenced from 032C, 032E
+L035C:  LD      A,L
+        ADD     A,80h
+        LD      C,A
+        LD      B,00h
+        PUSH    BC
+        LD      D,1Fh
+        LD      A,(L02FB)
+        LD      E,A
+        ADD     A,80h
+        LD      (L02FB),A
+        LD      HL,(L02FC)
+        LD      A,(L02FE)
+        CALL    L01F9
+        POP     BC
+        LD      A,(L0301)
+        CP      05h
+        JP      NZ,L03CC
+        LD      HL,(L02FC)
+        LD      A,(L02FE)
+        PUSH    BC
+        ADD     HL,BC
+        ADC     A,00h
+        LD      BC,(L1408)
+        SCF
+        CCF
+        SBC     HL,BC
+        SBC     A,00h
+        LD      (L02FC),HL
+        LD      (L02FE),A
+        LD      (L02FF),BC
+        POP     BC
+        LD      A,80h
+        SUB     C
+        LD      C,A
+        JP      Z,L03EA
+        LD      HL,(L02FF)
+        SCF
+        CCF
+        SBC     HL,BC
+        LD      (L02FF),HL
+        LD      HL,(L02FC)
+        LD      A,(L02FE)
+        PUSH    BC
+        CALL    L01F9
+        POP     BC
+        LD      HL,(L02FC)
+        LD      A,(L02FE)
+        ADD     HL,BC
+        ADC     A,00h
+        LD      (L02FC),HL
+        LD      (L02FE),A
+        JR      L03EA
+
+        ; Referenced from 031F, 037D
+L03CC:  LD      A,0C9h
+        LD      (L02B7),A
+        LD      (L0302),A
+        LD      HL,4000h
+        LD      (HL),2Bh        ; '+'
+        INC     HL
+        LD      (HL),00h
+        LD      HL,178Eh
+        LD      (HL),0C6h
+        INC     HL
+        INC     HL
+        INC     HL
+        INC     HL
+        LD      (HL),00h
+        INC     HL
+        LD      (HL),00h
+
+        ; Referenced from 0359, 03A3, 03CA
+L03EA:  POP     HL
+        POP     DE
+        POP     BC
+        POP     AF
+        RET
+
+        ; Referenced from 04BC, 04EB, 0587, 05A4, 05B9, 05DA, 05FE, 0652, 065D, 069A, 06A3, 06BB, 06C1, 06DA, 06EC, 06F0, 071D, 074F, 0759, 075F, 0769, 076D, 0771
+        ; --- START PROC L03EF ---
+L03EF:  CALL    L02B7
+        PUSH    BC
+        PUSH    HL
+        LD      A,(IX+03h)
+        SUB     (IX+00h)
+        LD      C,A
+        LD      A,(IX+04h)
+        SBC     A,(IX+01h)
+        JR      NZ,L042D
+        LD      A,(IX+05h)
+        SBC     A,(IX+02h)
+        JR      NZ,L042D
+        LD      A,C
+        CP      10h
+        JR      NC,L042D
+
+        ; Referenced from 0452
+L0410:  CALL    L02B7
+        LD      B,00h
+        LD      HL,(L0454)
+        ADD     HL,BC
+        LD      A,(HL)
+        INC     (IX+03h)
+        JR      NZ,L0427
+        INC     (IX+04h)
+        JR      NZ,L0427
+        INC     (IX+05h)
+
+        ; Referenced from 041D, 0422
+L0427:  POP     HL
+        POP     BC
+        CALL    L02B7
+        RET
+
+        ; Referenced from 0401, 0409, 040E
+L042D:  CALL    L02B7
+        CALL    L0041
+        PUSH    DE
+        LD      DE,(L0454)
+        LD      L,(IX+03h)
+        LD      (IX+00h),L
+        LD      H,(IX+04h)
+        LD      (IX+01h),H
+        LD      A,(IX+05h)
+        LD      (IX+02h),A
+        LD      C,10h
+        CALL    L01F9
+        POP     DE
+        LD      C,00h
+        JR      L0410
+
+        ; Referenced from 0415, 0434, 045F, 047A, 0480
+L0454:  NOP
+        NOP
+
+        ; Referenced from 0465, 0483, 0489, 06DE, 09A4, 1200, 123D, 1343, 1462, 170D, 173F, 1751, 1767, 176B
+L0456:  NOP
+        NOP
+
+        ; Referenced from 0903
+        ; --- START PROC L0458 ---
+L0458:  LD      IX,1B80h
+        LD      HL,1D80h
+        LD      (L0454),HL
+        LD      HL,1867h
+        LD      (L0456),HL
+        LD      A,(L0889)
+        LD      C,A
+        LD      A,10h
+        LD      B,00h
+        JR      L048C
+
+        ; Referenced from 04B1
+L0472:  CALL    L02B7
+        LD      DE,0020h
+        ADD     IX,DE
+        LD      HL,(L0454)
+        LD      E,10h
+        ADD     HL,DE
+        LD      (L0454),HL
+        LD      HL,(L0456)
+        LD      E,27h           ; '''
+        ADD     HL,DE
+        LD      (L0456),HL
+
+        ; Referenced from 0470
+L048C:  BIT     4,(IX+06h)
+        JR      Z,L04AF
+        BIT     3,(IX+06h)
+        JR      NZ,L049E
+        BIT     1,C
+        JR      NZ,L04A2
+        JR      L04AF
+
+        ; Referenced from 0496
+L049E:  BIT     0,C
+        JR      Z,L04AF
+
+        ; Referenced from 049A
+L04A2:  CALL    L02B7
+        PUSH    AF
+        PUSH    BC
+        CALL    L0302
+        CALL    L04B4
+        POP     BC
+        POP     AF
+
+        ; Referenced from 0490, 049C, 04A0
+L04AF:  INC     B
+        DEC     A
+        JR      NZ,L0472
+        RET
+
+        ; Referenced from 04AA
+        ; --- START PROC L04B4 ---
+L04B4:  INC     (IX+07h)
+        RET     NZ
+        INC     (IX+08h)
+        RET     NZ
+
+        ; Referenced from 052D, 0584, 0610, 0631, 064F, 070F, 075C
+        ; --- START PROC L04BC ---
+L04BC:  CALL    L03EF
+
+        ; Referenced from 04D5, 04E3
+L04BF:  BIT     7,A
+        JP      Z,L050E
+        PUSH    BC
+        BIT     6,A
+        JR      Z,L04D7
+        LD      C,0C0h
+        CALL    L04E6
+        LD      (IX+09h),E
+        LD      (IX+0Ah),D
+        POP     BC
+        JR      L04BF
+
+        ; Referenced from 04C7
+L04D7:  LD      C,80h
+        CALL    L04E6
+        LD      (IX+0Bh),E
+        LD      (IX+0Ch),D
+        POP     BC
+        JP      L04BF
+
+        ; Referenced from 04CB, 04D9
+        ; --- START PROC L04E6 ---
+L04E6:  AND     3Fh             ; '?'
+        LD      E,A
+        LD      D,00h
+
+        ; Referenced from 0503
+L04EB:  CALL    L03EF
+        LD      B,A
+        AND     0C0h
+        CP      C
+        JR      NZ,L0505
+        LD      A,B
+        RLA
+        RLA
+        RR      D
+        RR      E
+        RRA
+        RR      D
+        RR      E
+        RRA
+        LD      D,E
+        LD      E,A
+        JR      L04EB
+
+        ; Referenced from 04F2
+L0505:  LD      A,E
+        CPL
+        LD      E,A
+        LD      A,D
+        CPL
+        LD      D,A
+        INC     DE
+        LD      A,B
+        RET
+
+        ; Referenced from 04C1
+        ; --- START PROC L050E ---
+L050E:  CP      60h             ; '`'
+        JR      NC,L0537
+        BIT     1,(IX+06h)
+        JR      NZ,L0522
+        PUSH    BC
+        PUSH    IX
+        LD      C,A
+        CALL    L11E5
+        POP     IX
+        POP     BC
+
+        ; Referenced from 0516, 0545, 0591, 05A1, 05AF, 05B6, 05C3, 05CA, 05E5, 065A, 0681, 0690, 0697, 06A0, 06AF, 06D0, 06D7, 06E4, 06E9, 0716, 0792, 0799, 079F, 07AC, 07B9, 07CA
+        ; --- START PROC L0522 ---
+L0522:  CALL    L02B7
+        LD      E,(IX+09h)
+        LD      D,(IX+0Ah)
+        LD      A,D
+        OR      E
+        JP      Z,L04BC
+        LD      (IX+07h),E
+        LD      (IX+08h),D
+        RET
+
+        ; Referenced from 0510
+L0537:  SUB     60h             ; '`'
+        JP      Z,L05CD
+        DEC     A
+        JP      Z,L05DA
+        DEC     A
+        JP      Z,L0587
+        DEC     A
+        JP      Z,L0522
+        DEC     A
+        JP      Z,L05E8
+        DEC     A
+        JP      Z,L0613
+        DEC     A
+        JP      Z,L05A4
+        DEC     A
+        JP      Z,L05B9
+        DEC     A
+        JP      Z,L0652
+        DEC     A
+        JP      Z,L065D
+        DEC     A
+        JP      Z,L069A
+        DEC     A
+        JP      Z,L06A3
+        DEC     A
+        JP      Z,L06B2
+        DEC     A
+        JP      Z,L06D3
+        DEC     A
+        JP      Z,L06DA
+        DEC     A
+        JP      Z,L06EC
+        DEC     A
+        JP      Z,L0712
+        DEC     A
+        JP      Z,L0719
+        DEC     A
+        JP      Z,L076D
+        JP      L04BC
+
+        ; Referenced from 0541
+L0587:  CALL    L03EF
+        LD      (IX+1Dh),A
+        BIT     6,(IX+06h)
+        JP      NZ,L0522
+        PUSH    BC
+        PUSH    IX
+        LD      E,B
+        LD      C,(IX+1Dh)
+        CALL    L0E06
+        POP     IX
+        POP     BC
+        JP      L0522
+
+        ; Referenced from 0551
+L05A4:  CALL    L03EF
+        OR      A
+        JP      NZ,L05B2
+        RES     6,(IX+06h)
+        JP      L0522
+
+        ; Referenced from 05A8
+L05B2:  SET     6,(IX+06h)
+        JP      L0522
+
+        ; Referenced from 0555
+L05B9:  CALL    L03EF
+        OR      A
+        JR      NZ,L05C6
+        RES     7,(IX+06h)
+        JP      L0522
+
+        ; Referenced from 05BD
+L05C6:  SET     7,(IX+06h)
+        JP      L0522
+
+        ; Referenced from 0539
+L05CD:  LD      (IX+06h),00h
+        LD      (IX+0Bh),00h
+        LD      (IX+0Ch),00h
+        RET
+
+        ; Referenced from 053D
+L05DA:  CALL    L03EF
+        LD      (IX+0Dh),A
+        PUSH    BC
+        CALL    L1716
+        POP     BC
+        JP      L0522
+
+        ; Referenced from 0549
+L05E8:  PUSH    IX
+        POP     IY
+        LD      DE,0010h
+        ADD     IY,DE
+        LD      DE,0003h
+
+        ; Referenced from 05FC
+L05F4:  LD      A,(IY+00h)
+        OR      A
+        JR      Z,L05FE
+        ADD     IY,DE
+        JR      L05F4
+
+        ; Referenced from 05F8
+L05FE:  CALL    L03EF
+        LD      (IY+00h),A
+        LD      A,(IX+03h)
+        LD      (IY+01h),A
+        LD      A,(IX+04h)
+        LD      (IY+02h),A
+        JP      L04BC
+
+        ; Referenced from 054D
+L0613:  PUSH    IX
+        POP     IY
+        LD      DE,0019h
+        ADD     IY,DE
+        LD      DE,0FFFDh
+
+        ; Referenced from 0627
+L061F:  LD      A,(IY+00h)
+        OR      A
+        JR      NZ,L0629
+        ADD     IY,DE
+        JR      L061F
+
+        ; Referenced from 0623
+L0629:  CP      7Fh             ; ''
+        JR      Z,L0634
+        DEC     A
+        LD      (IY+00h),A
+        JP      Z,L04BC
+
+        ; Referenced from 062B
+L0634:  LD      L,(IY+01h)
+        LD      E,(IX+03h)
+        LD      (IX+03h),L
+        LD      H,(IY+02h)
+        LD      D,(IX+04h)
+        LD      (IX+04h),H
+        SCF
+        CCF
+        SBC     HL,DE
+        JR      C,L064F
+        DEC     (IX+05h)
+
+        ; Referenced from 064A
+L064F:  JP      L04BC
+
+        ; Referenced from 0559
+L0652:  CALL    L03EF
+        ADD     A,28h           ; '('
+        CALL    L0DF4
+        JP      L0522
+
+        ; Referenced from 055D
+L065D:  CALL    L03EF
+        LD      H,A
+        LD      L,10h
+        LD      IY,1B80h
+        LD      DE,0020h
+
+        ; Referenced from 0686
+L066A:  BIT     0,(IY+06h)
+        JR      Z,L0680
+        LD      A,(IY+0Eh)
+        CP      (IX+0Eh)
+        JR      NZ,L0680
+        LD      A,H
+        AND     0Fh
+        CP      (IY+0Fh)
+        JR      Z,L0688
+
+        ; Referenced from 066E, 0676
+L0680:  DEC     L
+        JP      Z,L0522
+        ADD     IY,DE
+        JR      L066A
+
+        ; Referenced from 067E
+L0688:  BIT     4,H
+        JR      NZ,L0693
+        SET     1,(IY+06h)
+        JP      L0522
+
+        ; Referenced from 068A
+L0693:  RES     1,(IY+06h)
+        JP      L0522
+
+        ; Referenced from 0561
+L069A:  CALL    L03EF
+        LD      (IX+1Ch),A
+        JP      L0522
+
+        ; Referenced from 0565
+L06A3:  CALL    L03EF
+        PUSH    IX
+        PUSH    BC
+        CALL    L0BB6
+        POP     BC
+        POP     IX
+        JP      L0522
+
+        ; Referenced from 0569
+L06B2:  LD      IY,0F55h
+        LD      E,B
+        LD      D,00h
+        ADD     IY,DE
+        CALL    L03EF
+        LD      (IY+00h),A
+        CALL    L03EF
+        LD      (IY+10h),A
+        SET     0,(IY+40h)
+        LD      A,01h
+        LD      (L0F54),A
+        JP      L0522
+
+        ; Referenced from 056D
+L06D3:  SET     3,(IX+06h)
+        JP      L0522
+
+        ; Referenced from 0571
+L06DA:  CALL    L03EF
+        LD      D,A
+        LD      HL,(L0456)
+        LD      A,(HL)
+        CP      01h
+        JP      NZ,L0522
+        INC     HL
+        LD      (HL),D
+        JP      L0522
+
+        ; Referenced from 0575
+L06EC:  CALL    L03EF
+        LD      L,A
+        CALL    L03EF
+        LD      H,A
+        RLA
+        LD      A,00h
+        SBC     A,00h
+        LD      D,A
+
+        ; Referenced from 0757
+L06FA:  LD      A,(IX+03h)
+        ADD     A,L
+        LD      (IX+03h),A
+        LD      A,(IX+04h)
+        ADC     A,H
+        LD      (IX+04h),A
+        LD      A,(IX+05h)
+        ADC     A,D
+        LD      (IX+05h),A
+        JP      L04BC
+
+        ; Referenced from 0579
+L0712:  CALL    L075F
+        LD      (HL),A
+        JP      L0522
+
+        ; Referenced from 057D
+L0719:  CALL    L075F
+        LD      D,A
+        CALL    L03EF
+        DEC     D
+        JR      NZ,L0728
+        CP      (HL)
+        JR      NZ,L0759
+        JR      L074F
+
+        ; Referenced from 0721
+L0728:  DEC     D
+        JR      NZ,L0730
+        CP      (HL)
+        JR      C,L0759
+        JR      L074F
+
+        ; Referenced from 0729
+L0730:  DEC     D
+        JR      NZ,L073A
+        CP      (HL)
+        JR      C,L0759
+        JR      Z,L0759
+        JR      L074F
+
+        ; Referenced from 0731
+L073A:  DEC     D
+        JR      NZ,L0744
+        CP      (HL)
+        JR      C,L074F
+        JR      Z,L074F
+        JR      L0759
+
+        ; Referenced from 073B
+L0744:  DEC     D
+        JR      NZ,L074C
+        CP      (HL)
+        JR      NC,L0759
+        JR      L074F
+
+        ; Referenced from 0745
+L074C:  CP      (HL)
+        JR      Z,L0759
+
+        ; Referenced from 0726, 072E, 0738, 073E, 0740, 074A
+L074F:  CALL    L03EF
+        LD      L,A
+        LD      H,00h
+        LD      D,00h
+        JR      L06FA
+
+        ; Referenced from 0724, 072C, 0734, 0736, 0742, 0748, 074D
+L0759:  CALL    L03EF
+        JP      L04BC
+
+        ; Referenced from 0712, 0719
+        ; --- START PROC L075F ---
+L075F:  CALL    L03EF
+        LD      E,A
+        LD      D,00h
+        LD      HL,1B22h
+        ADD     HL,DE
+        CALL    L03EF
+        RET
+
+        ; Referenced from 0581
+        ; --- START PROC L076D ---
+L076D:  CALL    L03EF
+        LD      D,A
+        CALL    L03EF
+        LD      E,A
+        LD      A,D
+        CP      00h
+        JP      Z,L07A2
+        CP      01h
+        JP      Z,L07AF
+        CP      02h
+        JP      Z,L07C1
+        CP      03h
+        JP      Z,L07BC
+        CP      04h
+        JR      Z,L0795
+        CP      05h
+        JR      Z,L079C
+        JP      L0522
+
+        ; Referenced from 078C
+L0795:  LD      A,E
+        LD      (L15AE),A
+        JP      L0522
+
+        ; Referenced from 0790
+L079C:  LD      (IX+1Eh),E
+        JP      L0522
+
+        ; Referenced from 0778
+L07A2:  PUSH    IX
+        PUSH    BC
+        LD      A,E
+        CALL    L0C77
+        POP     BC
+        POP     IX
+        JP      L0522
+
+        ; Referenced from 077D
+L07AF:  LD      A,E
+
+        ; Referenced from 07BF
+L07B0:  PUSH    IX
+        PUSH    BC
+        CALL    L0CAA
+        POP     BC
+        POP     IX
+        JP      L0522
+
+        ; Referenced from 0787
+L07BC:  LD      A,(1B22h)
+        JR      L07B0
+
+        ; Referenced from 0782
+L07C1:  PUSH    IX
+        PUSH    BC
+        CALL    L0B50
+        POP     BC
+        POP     IX
+        JP      L0522
+
+        ; Referenced from 08FD
+        ; --- START PROC L07CD ---
+L07CD:  LD      DE,0007h
+        LD      A,(L0889)
+        LD      B,A
+        LD      H,00h
+        LD      IX,1772h
+        CALL    L07EF
+        INC     H
+        LD      IX,179Dh
+        CALL    L07EF
+        LD      IX,17B3h
+        CALL    L07EF
+        RET
+
+        ; Referenced from 07FE, 0804, 080D, 0814, 0818, 0820, 0825, 0851, 0865, 086A
+        ; --- START PROC L07ED ---
+L07ED:  ADD     IX,DE
+
+        ; Referenced from 07DA, 07E2, 07E9
+        ; --- START PROC L07EF ---
+L07EF:  LD      A,(IX+00h)
+        CP      0FFh
+        RET     Z
+        CALL    L02B7
+        BIT     3,A
+        JR      NZ,L0802
+        BIT     1,B
+        JR      Z,L07ED
+        JR      L0806
+
+        ; Referenced from 07FA
+L0802:  BIT     0,B
+        JR      Z,L07ED
+
+        ; Referenced from 0800
+L0806:  BIT     6,A
+        JR      Z,L0816
+        DEC     (IX+06h)
+        JR      NZ,L07ED
+        RES     6,A
+        LD      (IX+00h),A
+        JR      L07ED
+
+        ; Referenced from 0808
+L0816:  BIT     4,A
+        JR      Z,L07ED
+        AND     07h
+        LD      C,A
+        INC     (IX+04h)
+        JR      NZ,L07ED
+        INC     (IX+05h)
+        JR      NZ,L07ED
+        RES     4,(IX+00h)
+        RES     3,(IX+00h)
+        LD      A,(IX+00h)
+        AND     2Fh             ; '/'
+        CP      26h             ; '&'
+        JR      Z,L0867
+        SET     6,(IX+00h)
+        SET     7,(IX+00h)
+        BIT     0,H
+        JR      Z,L0853
+        LD      E,C
+        LD      IY,0009h
+        ADD     IY,DE
+        LD      E,07h
+        SET     1,(IY+00h)
+        JR      L07ED
+
+        ; Referenced from 0842
+L0853:  LD      IY,4000h
+        LD      A,C
+
+        ; Referenced from 085C
+L0858:  BIT     7,(IY+00h)
+        JR      NZ,L0858
+        LD      (IY+00h),28h    ; '('
+        LD      (IY+01h),A
+        JR      L07ED
+
+        ; Referenced from 0836
+L0867:  CALL    L16F1
+        JR      L07ED
+
+        ; Referenced from 099D, 0A1B, 0A34, 0A96, 0AAD, 0B3C, 0B46, 0B6F, 1707
+        ; --- START PROC L086C ---
+L086C:  CALL    L01D1
+        LD      D,00h
+        LD      E,A
+        SLA     E
+        SLA     E
+        SLA     E
+        SLA     E
+        SLA     E
+        RL      D
+        LD      IX,1B80h
+        ADD     IX,DE
+        RET
+
+        ; Referenced from 0053, 0056, 005B, 0E02
+L0885:  CALL    Z,L0000
+
+        ; Referenced from 08E4, 08EB
+L0888:  NOP
+
+        ; Referenced from 0468, 07D0, 08F4, 0EBC
+L0889:  NOP
+
+        ; Referenced from 0006
+        ; --- START PROC L088A ---
+L088A:  EXX
+        LD      B,15h
+        LD      D,1Fh
+        LD      HL,4000h
+        EXX
+        EI
+        LD      HL,7F11h
+        LD      (HL),9Fh
+        LD      (HL),0BFh
+        LD      (HL),0DFh
+        LD      (HL),0FFh
+        LD      HL,1867h
+        LD      DE,0027h
+        LD      B,10h
+
+        ; Referenced from 08AB
+L08A7:  LD      (HL),0FFh
+        ADD     HL,DE
+        DEC     B
+        JR      NZ,L08A7
+        LD      HL,(L02B7)
+        LD      (L02B3),HL
+        LD      HL,(L02C4)
+        LD      (L02B5),HL
+        LD      A,0C9h
+        LD      (L02B7),A
+
+        ; Referenced from 0914, 091C, 099A, 09AE, 09BC, 09C2, 09CB, 09D4, 0A00, 0A0F, 0A18, 0A29, 0A31, 0A41, 0A48, 0A51, 0A5A, 0A69, 0A8D, 0A93, 0AA3, 0AAA, 0AB6, 0AD6, 0B0F, 0B23, 0B28, 0B39, 0B43, 0B4D, 0B78, 0B81
+        ; --- START PROC L08BE ---
+L08BE:  CALL    L0041
+        CALL    L02B7
+        CALL    L0302
+        CALL    L02B7
+        CALL    L0041
+        LD      B,00h
+        LD      A,(L0040)
+        SUB     01h
+        JR      C,L08E1
+        LD      (L0040),A
+        CALL    L0066
+        CALL    L0041
+        LD      B,01h
+
+        ; Referenced from 08D4
+L08E1:  CALL    L02B7
+        LD      A,(L0888)
+        SUB     01h
+        JR      C,L08F0
+        LD      (L0888),A
+        SET     1,B
+
+        ; Referenced from 08E9
+L08F0:  LD      A,B
+        OR      A
+        JR      Z,L0909
+        LD      (L0889),A
+        CALL    L0EA7
+        CALL    L0041
+        CALL    L07CD
+        CALL    L0041
+        CALL    L0458
+        CALL    L0041
+
+        ; Referenced from 08F2
+L0909:  CALL    L0FA5
+        LD      A,(L0036)
+        LD      B,A
+        LD      A,(L0037)
+        CP      B
+        JP      Z,L08BE
+        CALL    L01D1
+        CP      0FFh
+        JP      NZ,L08BE
+        CALL    L01D1
+        CP      00h
+        JP      Z,L099D
+        CP      01h
+        JP      Z,L09B1
+        CP      02h
+        JP      Z,L09BF
+        CP      03h
+        JP      Z,L09C5
+        CP      04h
+        JP      Z,L09CE
+        CP      05h
+        JP      Z,L0A12
+        CP      06h
+        JP      Z,L0A1B
+        CP      07h
+        JP      Z,L0A34
+        CP      0Bh
+        JP      Z,L0A5D
+        CP      0Ch
+        JP      Z,L0A78
+        CP      0Dh
+        JP      Z,L0A90
+        CP      0Eh
+        JP      Z,L0A96
+        CP      10h
+        JP      Z,L0A4B
+        CP      12h
+        JP      Z,L0A54
+        CP      14h
+        JP      Z,L0AAD
+        CP      16h
+        JP      Z,L0AB9
+        CP      17h
+        JP      Z,L0AD9
+        CP      1Ah
+        JP      Z,L0B16
+        CP      1Bh
+        JP      Z,L0B2B
+        CP      1Ch
+        JP      Z,L0B3C
+        CP      1Dh
+        JP      Z,L0B46
+        CP      1Eh
+        JP      Z,L09D7
+        CP      1Fh
+        JP      Z,L0B6F
+        CP      20h             ; ' '
+        JP      Z,L0B7B
+        JP      L08BE
+
+        ; Referenced from 0924
+L099D:  CALL    L086C
+        LD      B,A
+        CALL    L1130
+        LD      (L0456),HL
+        CALL    L01D1
+        LD      C,A
+        CALL    L11E5
+        JP      L08BE
+
+        ; Referenced from 0929
+L09B1:  CALL    L01D1
+        LD      B,A
+        CALL    L01D1
+        LD      C,A
+        CALL    L167D
+        JP      L08BE
+
+        ; Referenced from 092E
+L09BF:  CALL    L1707
+        JP      L08BE
+
+        ; Referenced from 0933
+L09C5:  CALL    L01D1
+        CALL    L1747
+        JP      L08BE
+
+        ; Referenced from 0938
+L09CE:  CALL    L01D1
+        CALL    L0F35
+        JP      L08BE
+
+        ; Referenced from 098D
+L09D7:  CALL    L01D1
+        LD      C,A
+        CALL    L01D1
+        LD      H,A
+        LD      L,00h
+        LD      IX,1B80h
+        LD      DE,0020h
+        LD      B,10h
+
+        ; Referenced from 0A07
+L09EA:  BIT     0,(IX+06h)
+        JR      Z,L0A03
+        LD      A,(IX+0Eh)
+        CP      C
+        JR      NZ,L0A03
+        LD      A,(IX+0Fh)
+        CP      H
+        JR      NZ,L0A03
+        LD      A,L
+        CALL    L0F35
+        JP      L08BE
+
+        ; Referenced from 09EE, 09F4, 09FA
+L0A03:  ADD     IX,DE
+        INC     L
+        DEC     B
+        JR      NZ,L09EA
+        CALL    L01D1
+        CALL    L01D1
+        JP      L08BE
+
+        ; Referenced from 093D
+L0A12:  CALL    L01D1
+        CALL    L0DF4
+        JP      L08BE
+
+        ; Referenced from 0942
+L0A1B:  CALL    L086C
+        LD      B,A
+        CALL    L01D1
+        LD      (IX+1Dh),A
+        BIT     6,(IX+06h)
+        JP      NZ,L08BE
+        LD      C,A
+        LD      E,B
+        CALL    L0E06
+        JP      L08BE
+
+        ; Referenced from 0947
+L0A34:  CALL    L086C
+        CALL    L01D1
+        OR      A
+        JR      Z,L0A44
+        SET     6,(IX+06h)
+        JP      L08BE
+
+        ; Referenced from 0A3B
+L0A44:  RES     6,(IX+06h)
+        JP      L08BE
+
+        ; Referenced from 0960
+L0A4B:  CALL    L01D1
+        CALL    L0BB6
+        JP      L08BE
+
+        ; Referenced from 0965
+L0A54:  CALL    L01D1
+        CALL    L0C77
+        JP      L08BE
+
+        ; Referenced from 094C
+L0A5D:  LD      HL,0A6Ch
+        LD      B,0Ch
+
+        ; Referenced from 0A67
+L0A62:  CALL    L01D1
+        LD      (HL),A
+        INC     HL
+        DJNZ    L0A62
+        JP      L08BE
+
+        ; Referenced from 171F, 1734
+L0A6C:  NOP
+        NOP
+
+        ; Referenced from 1722, 1737
+L0A6E:  NOP
+
+        ; Referenced from 0E4C, 0E61
+L0A6F:  NOP
+        NOP
+
+        ; Referenced from 0E4F, 0E64
+L0A71:  NOP
+
+        ; Referenced from 0BC0, 0BD5, 0C08
+L0A72:  NOP
+
+        ; Referenced from 0C10
+L0A73:  NOP
+
+        ; Referenced from 0BC3, 0BD8, 0C18
+L0A74:  NOP
+
+        ; Referenced from 1315, 1396
+L0A75:  NOP
+        NOP
+
+        ; Referenced from 1318, 139A
+L0A77:  NOP
+
+        ; Referenced from 0951
+L0A78:  LD      IX,1B80h
+        LD      B,10h
+        LD      DE,0020h
+
+        ; Referenced from 0A88
+L0A81:  RES     4,(IX+06h)
+        ADD     IX,DE
+        DEC     B
+        JR      NZ,L0A81
+        CALL    L0CD2
+        JP      L08BE
+
+        ; Referenced from 0956
+L0A90:  CALL    L0B50
+        JP      L08BE
+
+        ; Referenced from 095B
+L0A96:  CALL    L086C
+        CALL    L01D1
+        OR      A
+        JR      Z,L0AA6
+        SET     7,(IX+06h)
+        JP      L08BE
+
+        ; Referenced from 0A9D
+L0AA6:  RES     7,(IX+06h)
+        JP      L08BE
+
+        ; Referenced from 096A
+L0AAD:  CALL    L086C
+        CALL    L01D1
+        LD      (IX+1Ch),A
+        JP      L08BE
+
+        ; Referenced from 096F
+L0AB9:  LD      IX,1B80h
+        LD      DE,0020h
+        LD      B,10h
+
+        ; Referenced from 0AD1
+L0AC2:  LD      (IX+06h),00h
+        LD      (IX+0Bh),00h
+        LD      (IX+0Ch),00h
+        ADD     IX,DE
+        DEC     B
+        JR      NZ,L0AC2
+        CALL    L0CD2
+        JP      L08BE
+
+        ; Referenced from 0974
+L0AD9:  CALL    L01D1
+        LD      C,A
+        CALL    L01D1
+        LD      H,A
+        CALL    L01D1
+        LD      L,A
+        LD      IX,1B80h
+        LD      DE,0020h
+        LD      B,10h
+
+        ; Referenced from 0B14
+L0AEE:  BIT     0,(IX+06h)
+        JR      Z,L0B0E
+        LD      A,(IX+0Eh)
+        CP      C
+        JR      NZ,L0B0E
+        LD      A,(IX+0Fh)
+        CP      H
+        JR      NZ,L0B0E
+        BIT     0,L
+        JR      NZ,L0B0A
+        RES     1,(IX+06h)
+        JR      L0B0E
+
+        ; Referenced from 0B02
+L0B0A:  SET     1,(IX+06h)
+
+        ; Referenced from 0AF2, 0AF8, 0AFE, 0B08
+L0B0E:  DEC     B
+        JP      Z,L08BE
+        ADD     IX,DE
+        JR      L0AEE
+
+        ; Referenced from 0979
+L0B16:  CALL    L01D1
+        CALL    L1130
+        CALL    L01D1
+        LD      B,A
+        LD      A,(HL)
+        CP      01h
+        JP      NZ,L08BE
+        INC     HL
+        LD      (HL),B
+        JP      L08BE
+
+        ; Referenced from 097E
+L0B2B:  CALL    L01D1
+        LD      D,00h
+        LD      E,A
+        LD      HL,1B22h
+        ADD     HL,DE
+        CALL    L01D1
+        LD      (HL),A
+        JP      L08BE
+
+        ; Referenced from 0983
+L0B3C:  CALL    L086C
+        SET     5,(IX+06h)
+        JP      L08BE
+
+        ; Referenced from 0988
+L0B46:  CALL    L086C
+        RES     5,(IX+06h)
+        JP      L08BE
+
+        ; Referenced from 07C4, 0A90
+        ; --- START PROC L0B50 ---
+L0B50:  LD      IX,1B80h
+        LD      B,10h
+        LD      DE,0020h
+
+        ; Referenced from 0B6D
+L0B59:  BIT     5,(IX+06h)
+        JR      NZ,L0B69
+        BIT     0,(IX+06h)
+        JR      Z,L0B69
+        SET     4,(IX+06h)
+
+        ; Referenced from 0B5D, 0B63
+L0B69:  DEC     B
+        RET     Z
+        ADD     IX,DE
+        JR      L0B59
+
+        ; Referenced from 0992
+        ; --- START PROC L0B6F ---
+L0B6F:  CALL    L086C
+        CALL    L01D1
+        LD      (IX+1Eh),A
+        JP      L08BE
+
+        ; Referenced from 0997
+        ; --- START PROC L0B7B ---
+L0B7B:  CALL    L01D1
+        LD      (L15AE),A
+        JP      L08BE
+
+        ; Referenced from 0BD1, 0BE6, 0C6A
+L0B84:  NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+
+        ; Referenced from 0BB8, 0C34
+L0BB5:  NOP
+
+        ; Referenced from 06A9, 0A4E
+        ; --- START PROC L0BB6 ---
+L0BB6:  LD      D,00h
+        LD      (L0BB5),A
+        LD      E,A
+        SLA     E
+        RL      D
+        LD      HL,(L0A72)
+        LD      A,(L0A74)
+        ADD     HL,DE
+        ADC     A,00h
+        LD      C,02h
+        LD      DE,0B84h
+        CALL    L01F9
+        LD      DE,(L0B84)
+        LD      HL,(L0A72)
+        LD      A,(L0A74)
+        ADD     HL,DE
+        ADC     A,00h
+        LD      C,31h           ; '1'
+        LD      DE,0B84h
+        CALL    L01F9
+        LD      A,(L0B84)
+        OR      A
+        RET     Z
+        LD      IX,1B80h
+        LD      IY,0F55h
+        LD      DE,0020h
+        LD      C,00h
+        LD      HL,0B85h
+        LD      B,10h
+
+        ; Referenced from 0C75
+L0BFD:  LD      A,(IX+06h)
+        AND     21h             ; '!'
+        JR      NZ,L0C6F
+        LD      (IX+06h),11h
+        LD      A,(L0A72)
+        ADD     A,(HL)
+        INC     HL
+        LD      (IX+03h),A
+        LD      A,(L0A73)
+        ADC     A,(HL)
+        INC     HL
+        LD      (IX+04h),A
+        LD      A,(L0A74)
+        ADC     A,(HL)
+        INC     HL
+        LD      (IX+05h),A
+        LD      (IX+00h),0FFh
+        LD      (IX+01h),0FFh
+        LD      (IX+02h),0FFh
+        LD      (IX+07h),0FFh
+        LD      (IX+08h),0FFh
+        LD      A,(L0BB5)
+        LD      (IX+0Eh),A
+        LD      (IX+0Fh),C
+        LD      (IX+10h),00h
+        LD      (IX+13h),00h
+        LD      (IX+16h),00h
+        LD      (IX+19h),00h
+        LD      (IX+1Dh),00h
+        LD      (IX+1Ch),00h
+        LD      (IX+1Eh),00h
+        LD      (IY+20h),00h
+        LD      (IY+30h),00h
+        LD      (IY+00h),00h
+        LD      (IY+10h),00h
+        INC     C
+        LD      A,(L0B84)
+        CP      C
+        RET     Z
+
+        ; Referenced from 0C02
+L0C6F:  DEC     B
+        RET     Z
+        ADD     IX,DE
+        INC     IY
+        JR      L0BFD
+
+        ; Referenced from 07A6, 0A57
+        ; --- START PROC L0C77 ---
+L0C77:  LD      IX,1B80h
+        LD      DE,0020h
+        LD      B,10h
+
+        ; Referenced from 0CA4
+L0C80:  BIT     0,(IX+06h)
+        JR      Z,L0CA1
+        BIT     5,(IX+06h)
+        JR      NZ,L0CA1
+        CP      0FFh
+        JR      Z,L0C95
+        CP      (IX+0Eh)
+        JR      NZ,L0CA1
+
+        ; Referenced from 0C8E
+L0C95:  LD      (IX+06h),00h
+        LD      (IX+0Bh),00h
+        LD      (IX+0Ch),00h
+
+        ; Referenced from 0C84, 0C8A, 0C93
+L0CA1:  ADD     IX,DE
+        DEC     B
+        JR      NZ,L0C80
+        CALL    L0CD2
+        RET
+
+        ; Referenced from 07B3
+        ; --- START PROC L0CAA ---
+L0CAA:  LD      IX,1B80h
+        LD      DE,0020h
+        LD      B,10h
+
+        ; Referenced from 0CCB
+L0CB3:  BIT     0,(IX+06h)
+        JR      Z,L0CC8
+        BIT     5,(IX+06h)
+        JR      NZ,L0CC8
+        CP      (IX+0Eh)
+        JR      NZ,L0CC8
+        RES     4,(IX+06h)
+
+        ; Referenced from 0CB7, 0CBD, 0CC2
+L0CC8:  ADD     IX,DE
+        DEC     B
+        JR      NZ,L0CB3
+        CALL    L0CD2
+        RET
+
+        ; Referenced from 0D52, 0DC8
+L0CD1:  NOP
+
+        ; Referenced from 0A8A, 0AD3, 0CA6, 0CCD
+        ; --- START PROC L0CD2 ---
+L0CD2:  LD      IX,1772h
+        LD      E,00h
+        CALL    L0D1B
+        LD      IX,179Dh
+        LD      E,01h
+        CALL    L0D1B
+        LD      IX,17B3h
+        LD      E,01h
+        CALL    L0D1B
+        LD      IY,0E89h
+
+        ; Referenced from 0CFB, 0D12, 0D19
+L0CF1:  INC     IY
+        LD      A,(IY+00h)
+        BIT     7,A
+        RET     NZ
+        BIT     6,A
+        JR      NZ,L0CF1
+        LD      B,00h
+        SLA     A
+        SLA     A
+        SLA     A
+        SLA     A
+        SLA     A
+        LD      C,A
+        RL      B
+        LD      HL,1B86h
+        ADD     HL,BC
+        BIT     4,(HL)
+        JP      NZ,L0CF1
+        SET     6,(IY+00h)
+        JR      L0CF1
+
+        ; Referenced from 0CD8, 0CE1, 0CEA, 0DE2
+        ; --- START PROC L0D1B ---
+L0D1B:  LD      A,(IX+00h)
+        CP      0FFh
+        RET     Z
+        LD      D,A
+        LD      B,00h
+        LD      C,(IX+03h)
+        SLA     C
+        SLA     C
+        SLA     C
+        SLA     C
+        SLA     C
+        RL      B
+        LD      HL,1B86h
+        ADD     HL,BC
+        BIT     4,(HL)
+        JP      NZ,L0DDD
+        LD      A,D
+        AND     07h
+        OR      80h
+        LD      (IX+00h),A
+        LD      (IX+04h),00h
+        LD      (IX+05h),00h
+        LD      (IX+06h),00h
+        AND     07h
+        LD      (L0CD1),A
+        BIT     0,E
+        JP      NZ,L0DE5
+        BIT     5,D
+        JR      Z,L0D71
+        LD      A,0C9h
+        LD      (L02B7),A
+        LD      (L0302),A
+        LD      HL,4000h
+        LD      (HL),2Bh        ; '+'
+        INC     HL
+        LD      (HL),00h
+        JP      L0DDD
+
+        ; Referenced from 0D5C
+L0D71:  LD      D,00h
+        CP      03h
+        JR      C,L0D7B
+        SUB     04h
+        LD      D,02h
+
+        ; Referenced from 0D75
+L0D7B:  PUSH    DE
+        LD      E,A
+        LD      H,40h           ; '@'
+        LD      L,00h
+        LD      A,40h           ; '@'
+        ADD     A,E
+        LD      B,A
+        LD      C,7Fh           ; ''
+        LD      A,80h
+
+        ; Referenced from 0D8A
+L0D89:  AND     (HL)
+        JP      M,L0D89
+        LD      L,D
+        LD      (HL),B
+        INC     L
+        LD      (HL),C
+        LD      L,00h
+        LD      A,44h           ; 'D'
+        ADD     A,E
+        LD      B,A
+        LD      C,7Fh           ; ''
+        LD      A,80h
+
+        ; Referenced from 0D9C
+L0D9B:  AND     (HL)
+        JP      M,L0D9B
+        LD      L,D
+        LD      (HL),B
+        INC     L
+        LD      (HL),C
+        LD      L,00h
+        LD      A,48h           ; 'H'
+        ADD     A,E
+        LD      B,A
+        LD      C,7Fh           ; ''
+        LD      A,80h
+
+        ; Referenced from 0DAE
+L0DAD:  AND     (HL)
+        JP      M,L0DAD
+        LD      L,D
+        LD      (HL),B
+        INC     L
+        LD      (HL),C
+        LD      L,00h
+        LD      A,4Ch           ; 'L'
+        ADD     A,E
+        LD      B,A
+        LD      C,7Fh           ; ''
+        LD      A,80h
+
+        ; Referenced from 0DC0
+L0DBF:  AND     (HL)
+        JP      M,L0DBF
+        LD      L,D
+        LD      (HL),B
+        INC     L
+        LD      (HL),C
+        POP     DE
+        LD      A,(L0CD1)
+        LD      IY,4000h
+        LD      A,A
+
+        ; Referenced from 0DD4
+L0DD0:  BIT     7,(IY+00h)
+        JR      NZ,L0DD0
+        LD      (IY+00h),28h    ; '('
+        LD      (IY+01h),A
+
+        ; Referenced from 0D39, 0D6E, 0DF2
+L0DDD:  LD      BC,0007h
+        ADD     IX,BC
+        JP      L0D1B
+
+        ; Referenced from 0D57
+L0DE5:  LD      IY,0009h
+        LD      C,A
+        LD      B,00h
+        ADD     IY,BC
+        LD      (IY+00h),04h
+        JR      L0DDD
+
+        ; Referenced from 0657, 0A15
+        ; --- START PROC L0DF4 ---
+L0DF4:  LD      DE,00DAh
+        CALL    L1138
+        XOR     A
+        SLA     L
+        RL      H
+        RLA
+        LD      L,H
+        LD      H,A
+        LD      (L0885),HL
+        RET
+
+        ; Referenced from 059B, 0A2E, 1673
+        ; --- START PROC L0E06 ---
+L0E06:  LD      B,(IX+06h)
+        LD      D,00h
+        LD      IY,0F55h
+        ADD     IY,DE
+        LD      IX,0E8Ah
+
+        ; Referenced from 0E27
+L0E15:  LD      A,(IX+00h)
+        BIT     7,A
+        JR      NZ,L0E29
+        BIT     6,A
+        JR      NZ,L0E25
+        AND     0Fh
+        CP      E
+        JR      Z,L0E3B
+
+        ; Referenced from 0E1E
+L0E25:  INC     IX
+        JR      L0E15
+
+        ; Referenced from 0E1A
+L0E29:  LD      IX,0E8Ah
+
+        ; Referenced from 0E39
+L0E2D:  LD      A,(IX+00h)
+        BIT     7,A
+        RET     NZ
+        BIT     6,A
+        JR      NZ,L0E3B
+        INC     IX
+        JR      L0E2D
+
+        ; Referenced from 0E23, 0E35
+L0E3B:  BIT     3,B
+        JR      Z,L0E41
+        SET     5,E
+
+        ; Referenced from 0E3D
+L0E41:  LD      (IX+00h),E
+        LD      (IX+0Dh),00h
+        LD      B,00h
+        SLA     C
+        LD      HL,(L0A6F)
+        LD      A,(L0A71)
+        ADD     HL,BC
+        ADC     A,00h
+        LD      C,02h
+        LD      DE,1705h
+        CALL    L01F9
+        LD      DE,(L1705)
+        LD      HL,(L0A6F)
+        LD      A,(L0A71)
+        ADD     HL,DE
+        ADC     A,00h
+        LD      C,20h           ; ' '
+        LD      D,1Eh
+        LD      E,(IX+19h)
+        CALL    L01F9
+        LD      D,1Eh
+        LD      E,(IX+19h)
+        LD      A,(DE)
+        LD      (IY+20h),A
+        INC     DE
+        LD      A,(DE)
+        LD      (IY+30h),A
+        INC     DE
+        LD      (IX+05h),E
+        LD      (IX+09h),D
+        RET
+
+L0E8A:  LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        RST     0x38
+
+L0E8F:  NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        ADD     A,B
+        AND     B
+        RET     NZ
+        RET     PO
+
+        ; Referenced from 08F7
+        ; --- START PROC L0EA7 ---
+L0EA7:  LD      IX,0E8Ah
+
+        ; Referenced from 0EBA
+L0EAB:  CALL    L02B7
+        LD      C,(IX+00h)
+        BIT     7,C
+        RET     NZ
+        BIT     6,C
+        JR      Z,L0EBC
+
+        ; Referenced from 0EC7, 0ECB, 0F1B
+L0EB8:  INC     IX
+        JR      L0EAB
+
+        ; Referenced from 0EB6
+L0EBC:  LD      A,(L0889)
+        BIT     5,C
+        JR      NZ,L0EC9
+        BIT     1,A
+        JR      NZ,L0ECD
+        JR      L0EB8
+
+        ; Referenced from 0EC1
+L0EC9:  BIT     0,A
+        JR      Z,L0EB8
+
+        ; Referenced from 0EC5
+L0ECD:  LD      A,(IX+0Dh)
+        SUB     01h
+        JR      NC,L0EF3
+        LD      L,(IX+05h)
+        LD      H,(IX+09h)
+        LD      A,(HL)
+        SUB     01h
+        JR      C,L0F1D
+        INC     HL
+        LD      B,(HL)
+        LD      (IX+11h),B
+        INC     HL
+        LD      B,(HL)
+        LD      (IX+15h),B
+        INC     HL
+        CALL    L02B7
+        LD      (IX+05h),L
+        LD      (IX+09h),H
+
+        ; Referenced from 0ED2
+L0EF3:  LD      IY,0F55h
+        LD      B,00h
+        RES     5,C
+        ADD     IY,BC
+        LD      (IX+0Dh),A
+        LD      A,(IY+20h)
+        ADD     A,(IX+11h)
+        LD      (IY+20h),A
+        LD      A,(IY+30h)
+        ADC     A,(IX+15h)
+        LD      (IY+30h),A
+
+        ; Referenced from 0F33
+L0F12:  SET     0,(IY+40h)
+        LD      A,01h
+        LD      (L0F54),A
+        JR      L0EB8
+
+        ; Referenced from 0EDD
+L0F1D:  LD      IY,0F55h
+        LD      B,00h
+        RES     5,C
+        ADD     IY,BC
+        LD      (IY+20h),00h
+        LD      (IY+30h),00h
+        LD      (IX+00h),40h    ; '@'
+        JR      L0F12
+
+        ; Referenced from 09D1, 09FD
+        ; --- START PROC L0F35 ---
+L0F35:  LD      C,A
+        LD      B,00h
+        LD      IX,0F55h
+        ADD     IX,BC
+        CALL    L01D1
+        LD      (IX+00h),A
+        CALL    L01D1
+        LD      (IX+10h),A
+        SET     0,(IX+40h)
+        LD      A,01h
+        LD      (L0F54),A
+        RET
+
+        ; Referenced from 06CD, 0F18, 0F50, 0FA5, 0FAB
+L0F54:  NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+
+        ; Referenced from 0909
+        ; --- START PROC L0FA5 ---
+L0FA5:  LD      A,(L0F54)
+        OR      A
+        RET     Z
+        XOR     A
+        LD      (L0F54),A
+        CALL    L0041
+        LD      IY,1772h
+
+        ; Referenced from 1020
+L0FB5:  CALL    L02B7
+        LD      A,(IY+00h)
+        CP      0FFh
+        JR      Z,L1022
+        AND     07h
+        LD      B,A
+        LD      C,(IY+02h)
+        LD      E,(IY+03h)
+        LD      A,00h
+        LD      IX,0F55h
+        LD      D,00h
+        ADD     IX,DE
+        BIT     0,(IX+40h)
+        JR      Z,L101B
+        CALL    L1087
+        LD      (L140C),DE
+        LD      D,00h
+        LD      A,B
+        CP      03h
+        JR      C,L0FEA
+        SUB     04h
+        LD      D,02h
+
+        ; Referenced from 0FE4
+L0FEA:  LD      E,A
+        LD      H,40h           ; '@'
+        PUSH    IY
+        LD      IY,140Ch
+        LD      L,00h
+        LD      A,0A4h
+        ADD     A,E
+        LD      B,A
+        LD      C,(IY+01h)
+        LD      A,80h
+
+        ; Referenced from 0FFF
+L0FFE:  AND     (HL)
+        JP      M,L0FFE
+        LD      L,D
+        LD      (HL),B
+        INC     L
+        LD      (HL),C
+        LD      L,00h
+        LD      A,0A0h
+        ADD     A,E
+        LD      B,A
+        LD      C,(IY+00h)
+        LD      A,80h
+
+        ; Referenced from 1012
+L1011:  AND     (HL)
+        JP      M,L1011
+        LD      L,D
+        LD      (HL),B
+        INC     L
+        LD      (HL),C
+        POP     IY
+
+        ; Referenced from 0FD6
+L101B:  LD      DE,0007h
+        ADD     IY,DE
+        JR      L0FB5
+
+        ; Referenced from 0FBD
+L1022:  LD      IY,179Dh
+
+        ; Referenced from 1077
+L1026:  CALL    L02B7
+        LD      A,(IY+00h)
+        CP      0FFh
+        JR      Z,L1079
+        AND     07h
+        LD      B,A
+        LD      C,(IY+02h)
+        LD      E,(IY+03h)
+        LD      A,01h
+        LD      IX,0F55h
+        LD      D,00h
+        ADD     IX,DE
+        BIT     0,(IX+40h)
+        JR      Z,L1072
+        CALL    L1087
+        CALL    L02B7
+        RRC     B
+        RRC     B
+        RRC     B
+        LD      A,E
+        AND     0Fh
+        OR      80h
+        OR      B
+        LD      (7F11h),A
+        SRL     D
+        RR      E
+        SRL     D
+        RR      E
+        SRL     D
+        RR      E
+        SRL     D
+        RR      E
+        LD      A,E
+        LD      (7F11h),A
+
+        ; Referenced from 1047
+L1072:  LD      DE,0007h
+        ADD     IY,DE
+        JR      L1026
+
+        ; Referenced from 102E
+L1079:  LD      HL,0F95h
+        LD      A,10h
+
+        ; Referenced from 1082
+L107E:  LD      (HL),00h
+        INC     HL
+        DEC     A
+        JR      NZ,L107E
+        RET
+
+        ; Referenced from 109B, 10AE, 10B5, 10E7, 1105
+L1085:  NOP
+        NOP
+
+        ; Referenced from 0FD8, 1049, 123A, 1458
+        ; --- START PROC L1087 ---
+L1087:  PUSH    BC
+        PUSH    HL
+        CALL    L02B7
+        LD      B,A
+        LD      A,(IX+00h)
+        ADD     A,(IX+20h)
+        LD      E,A
+        LD      A,(IX+10h)
+        ADC     A,(IX+30h)
+        LD      D,A
+        LD      (L1085),DE
+        CALL    L02B7
+        LD      A,C
+        ADD     A,D
+        CP      60h             ; '`'
+        JR      C,L10BA
+        BIT     7,D
+        JR      Z,L10B3
+        LD      A,00h
+        LD      (L1085),A
+        JR      L10BA
+
+        ; Referenced from 10AA
+L10B3:  LD      A,0FFh
+        LD      (L1085),A
+        LD      A,5Fh           ; '_'
+
+        ; Referenced from 10A6, 10B1
+L10BA:  CALL    L02B7
+        BIT     0,B
+        JR      NZ,L10E1
+        LD      C,00h
+        CP      30h             ; '0'
+        JR      C,L10CB
+        SUB     30h             ; '0'
+        SET     2,C
+
+        ; Referenced from 10C5
+L10CB:  CP      18h
+        JR      C,L10D3
+        SUB     18h
+        SET     1,C
+
+        ; Referenced from 10CD
+L10D3:  CP      0Ch
+        JR      C,L10DB
+        SUB     0Ch
+        SET     0,C
+
+        ; Referenced from 10D5
+L10DB:  LD      IX,1147h
+        JR      L10EE
+
+        ; Referenced from 10BF
+L10E1:  SUB     21h             ; '!'
+        JR      NC,L10EA
+        LD      A,00h
+        LD      (L1085),A
+
+        ; Referenced from 10E3
+L10EA:  LD      IX,1161h
+
+        ; Referenced from 10DF
+L10EE:  RLCA
+        LD      E,A
+        LD      D,00h
+        ADD     IX,DE
+        CALL    L02B7
+        LD      A,(IX+02h)
+        SUB     (IX+00h)
+        LD      E,A
+        LD      A,(IX+03h)
+        SBC     A,(IX+01h)
+        LD      D,A
+        LD      A,(L1085)
+        CALL    L1138
+        CALL    L02B7
+        LD      L,00h
+        BIT     7,H
+        JR      Z,L1116
+        LD      L,0FFh
+
+        ; Referenced from 1112
+L1116:  LD      A,(IX+00h)
+        ADD     A,H
+        LD      E,A
+        LD      A,(IX+01h)
+        ADC     A,L
+        LD      D,A
+        BIT     0,B
+        JR      NZ,L112A
+        LD      A,C
+        RLCA
+        RLCA
+        RLCA
+        OR      D
+        LD      D,A
+
+        ; Referenced from 1122
+L112A:  POP     HL
+        POP     BC
+        CALL    L02B7
+        RET
+
+        ; Referenced from 09A1, 0B19, 170A
+        ; --- START PROC L1130 ---
+L1130:  LD      HL,1867h
+        LD      DE,0027h
+        JR      L113B
+
+        ; Referenced from 0DF7, 1108, 15E2
+        ; --- START PROC L1138 ---
+L1138:  LD      HL,0000h
+
+        ; Referenced from 1136, 1145
+        ; --- START PROC L113B ---
+L113B:  SRL     A
+        JR      NC,L1140
+        ADD     HL,DE
+
+        ; Referenced from 113D
+L1140:  RET     Z
+        SLA     E
+        RL      D
+        JR      L113B
+
+L1147:  ADD     A,H
+        LD      (BC),A
+        XOR     D
+        LD      (BC),A
+        OUT     (02h),A
+        CP      02h
+        DEC     HL
+        INC     BC
+        LD      E,E
+        INC     BC
+        ADC     A,(HL)
+        INC     BC
+        PUSH    BC
+        INC     BC
+        CP      03h
+        DEC     SP
+        INC     B
+        LD      A,E
+        INC     B
+        CP      A
+        INC     B
+        EX      AF,AF'
+        DEC     B
+        LD      SP,HL
+        INC     BC
+        RET     NZ
+        INC     BC
+        ADC     A,D
+        INC     BC
+        LD      D,A
+        INC     BC
+        DAA
+        INC     BC
+        JP      M,0CF02h
+        LD      (BC),A
+        AND     A
+        LD      (BC),A
+        ADD     A,C
+        LD      (BC),A
+        LD      E,L
+        LD      (BC),A
+        DEC     SP
+        LD      (BC),A
+        DEC     DE
+        LD      (BC),A
+        CALL    M,0E001h
+        LD      BC,01C5h
+        XOR     H
+        LD      BC,0194h
+        LD      A,L
+        LD      BC,0168h
+        LD      D,E
+        LD      BC,0140h
+        LD      L,01h
+        DEC     E
+        LD      BC,010Dh
+        CP      00h
+        RET     P
+        NOP
+        JP      PO,0D600h
+        NOP
+        JP      Z,0BE00h
+        NOP
+        OR      H
+        NOP
+        XOR     D
+        NOP
+        AND     B
+        NOP
+        SUB     A
+        NOP
+        ADC     A,A
+        NOP
+        ADD     A,A
+        NOP
+        LD      A,A
+        NOP
+        LD      A,B
+        NOP
+        LD      (HL),C
+        NOP
+        LD      L,E
+        NOP
+        LD      H,L
+        NOP
+        LD      E,A
+        NOP
+        LD      E,D
+        NOP
+        LD      D,L
+        NOP
+        LD      D,B
+        NOP
+        LD      C,H
+        NOP
+        LD      B,A
+        NOP
+        LD      B,E
+        NOP
+        LD      B,B
+        NOP
+        INC     A
+        NOP
+        ADD     HL,SP
+        NOP
+        DEC     (HL)
+        NOP
+        LD      (2F00h),A
+        NOP
+        DEC     L
+        NOP
+        LD      HL,(2800h)
+        NOP
+        LD      H,00h
+        INC     HL
+        NOP
+        LD      HL,2000h
+        NOP
+        LD      E,00h
+        INC     E
+        NOP
+        INC     E
+        NOP
+
+        ; Referenced from 11F6, 1291, 1657
+L11E1:  NOP
+        NOP
+
+        ; Referenced from 1243, 1268, 1468, 163A
+L11E3:  NOP
+
+        ; Referenced from 11F3, 15DF
+L11E4:  NOP
+
+        ; Referenced from 051C, 09AB
+        ; --- START PROC L11E5 ---
+L11E5:  CALL    L02B7
+        LD      A,(L15AE)
+        ADD     A,(IX+1Eh)
+        JP      P,L11F3
+        LD      A,7Fh           ; ''
+
+        ; Referenced from 11EE
+L11F3:  LD      (L11E4),A
+        LD      (L11E1),BC
+        CALL    L0302
+        CALL    L0041
+        LD      HL,(L0456)
+        LD      A,(HL)
+        CP      00h
+        JP      Z,L140E
+        CP      01h
+        JP      Z,L12D6
+        CP      02h
+        JP      Z,L1222
+        CP      03h
+        JP      Z,L1219
+        RET
+
+        ; Referenced from 1215
+L1219:  LD      IY,17B3h
+        CALL    L1822
+        JR      L1229
+
+        ; Referenced from 1210
+L1222:  LD      IY,179Dh
+        CALL    L17BF
+
+        ; Referenced from 1220
+L1229:  CP      0FFh
+        RET     Z
+        CALL    L1638
+        LD      A,01h
+        LD      E,B
+        LD      IX,0F55h
+        LD      D,00h
+        ADD     IX,DE
+        CALL    L1087
+        LD      IX,(L0456)
+        INC     IX
+        LD      A,(L11E3)
+        LD      C,A
+        LD      B,00h
+        LD      IY,0009h
+        ADD     IY,BC
+        LD      A,E
+        AND     0Fh
+        LD      (IY+1Ch),A
+        SRL     D
+        RR      E
+        SRL     D
+        RR      E
+        SRL     D
+        RR      E
+        SRL     D
+        RR      E
+        LD      (IY+20h),E
+        LD      A,(L11E3)
+        CP      03h
+        JR      NZ,L12A3
+        LD      HL,17ABh
+        RES     5,(HL)
+        LD      A,(IX-01h)
+        AND     03h
+        CP      03h
+        JR      NZ,L129D
+        LD      HL,7F11h
+        LD      A,(IY+1Ch)
+        OR      0C0h
+        LD      (HL),A
+        LD      A,(IY+20h)
+        LD      (HL),A
+        LD      HL,17ABh
+        LD      (HL),0A2h
+        INC     HL
+        INC     HL
+        LD      BC,(L11E1)
+        LD      (HL),C
+        INC     HL
+        LD      (HL),B
+        LD      HL,000Bh
+        LD      (HL),04h
+
+        ; Referenced from 127B
+L129D:  LD      A,(IX+00h)
+        LD      (IY+1Ch),A
+
+        ; Referenced from 126D
+L12A3:  LD      A,(IX+01h)
+        LD      (IY+08h),A
+        LD      A,(IX+02h)
+        SLA     A
+        SLA     A
+        SLA     A
+        SLA     A
+        LD      (IY+10h),A
+        LD      A,(IX+03h)
+        SLA     A
+        SLA     A
+        SLA     A
+        SLA     A
+        LD      (IY+24h),A
+        LD      A,(IX+04h)
+        LD      (IY+0Ch),A
+        LD      A,(IX+05h)
+        LD      (IY+14h),A
+        SET     0,(IY+00h)
+        RET
+
+        ; Referenced from 120B
+L12D6:  LD      IY,178Eh
+        CALL    L1822
+        CP      0FFh
+        RET     Z
+        BIT     7,A
+        JR      NZ,L1303
+        LD      A,0C9h
+        LD      (L02B7),A
+        LD      A,(HL)
+        BIT     5,A
+        JR      NZ,L1303
+        AND     07h
+        LD      IY,4000h
+        LD      A,A
+
+        ; Referenced from 12F9
+L12F5:  BIT     7,(IY+00h)
+        JR      NZ,L12F5
+        LD      (IY+00h),28h    ; '('
+        LD      (IY+01h),A
+        LD      A,(HL)
+
+        ; Referenced from 12E2, 12EC
+L1303:  CALL    L1638
+        LD      HL,178Eh
+        SET     5,(HL)
+        LD      A,C
+        SUB     30h             ; '0'
+        JR      NC,L1312
+        ADD     A,60h           ; '`'
+
+        ; Referenced from 130E
+L1312:  LD      C,A
+        LD      B,00h
+        LD      HL,(L0A75)
+        LD      A,(L0A77)
+        SLA     C
+        RL      B
+        SLA     C
+        RL      B
+        ADD     HL,BC
+        ADC     A,00h
+        SLA     C
+        RL      B
+        ADD     HL,BC
+        ADC     A,00h
+        LD      C,0Ch
+        LD      DE,1400h
+        CALL    L01F9
+        LD      BC,(L1406)
+        LD      A,B
+        OR      C
+        JR      NZ,L1343
+        LD      HL,178Eh
+        LD      (HL),0C6h
+        RET
+
+        ; Referenced from 133B
+L1343:  LD      HL,(L0456)
+        INC     HL
+        LD      A,(HL)
+        CP      04h
+        JR      Z,L1356
+        LD      B,A
+        LD      A,(L1400)
+        AND     0F0h
+        OR      B
+        LD      (L1400),A
+
+        ; Referenced from 134A
+L1356:  EXX
+        LD      E,00h
+        LD      (HL),24h        ; '$'
+        INC     HL
+        LD      A,(L1400)
+        AND     0Fh
+        NEG
+        SRA     A
+        SRA     A
+        LD      (HL),A
+        DEC     HL
+        LD      (HL),25h        ; '%'
+        INC     HL
+        LD      A,(L1400)
+        AND     0Fh
+        NEG
+        AND     03h
+        LD      (HL),A
+        DEC     HL
+        LD      (HL),2Bh        ; '+'
+        INC     HL
+        LD      (HL),80h
+        DEC     HL
+        LD      (HL),27h        ; '''
+        INC     HL
+        LD      (HL),B
+        DEC     HL
+        EXX
+        LD      IY,4002h
+        LD      A,0C0h
+
+        ; Referenced from 138D
+L1389:  BIT     7,(IY+00h)
+        JR      NZ,L1389
+        LD      (IY+00h),0B6h
+        LD      (IY+01h),A
+        LD      BC,(L0A75)
+        LD      A,(L0A77)
+        LD      D,A
+        LD      HL,(L1401)
+        LD      A,(L1403)
+        ADD     HL,BC
+        ADC     A,D
+        LD      BC,(L1404)
+        ADD     HL,BC
+        ADC     A,00h
+        LD      (L02FC),HL
+        LD      (L02FE),A
+        LD      HL,(L1406)
+        LD      (L02FF),HL
+        LD      A,00h
+        LD      (L0302),A
+        LD      (L02FB),A
+        LD      A,(L1400)
+        BIT     4,A
+        LD      A,04h
+        JR      Z,L13CB
+        INC     A
+
+        ; Referenced from 13C8
+L13CB:  LD      (L0301),A
+        CALL    L0310
+        LD      A,0D9h
+        LD      (L02B7),A
+        LD      A,08h
+        LD      (L02B7+1),A     ; reference not aligned to instruction
+        LD      A,(L1400)
+        AND     0Fh
+        CP      0Ah
+        LD      A,00h
+        JR      NC,L13E8
+        LD      A,0C9h
+
+        ; Referenced from 13E4
+L13E8:  LD      (L02CF),A
+        LD      A,(L1400)
+        BIT     7,A
+        LD      HL,0000h
+        JR      Z,L13FC
+        LD      HL,(L02B5)
+        EXX
+        LD      C,0AAh
+        EXX
+
+        ; Referenced from 13F3
+L13FC:  LD      (L02C4),HL
+        RET
+
+        ; Referenced from 134D, 1353, 135C, 136C, 13C1, 13DB, 13EB, 16F1
+L1400:  NOP
+
+        ; Referenced from 139E
+L1401:  NOP
+        NOP
+
+        ; Referenced from 13A1
+L1403:  NOP
+
+        ; Referenced from 13A6
+L1404:  NOP
+        NOP
+
+        ; Referenced from 1335, 13B3
+L1406:  NOP
+        NOP
+
+        ; Referenced from 038A
+L1408:  NOP
+        NOP
+        NOP
+        NOP
+
+        ; Referenced from 0FDB, 145B
+L140C:  NOP
+        NOP
+
+        ; Referenced from 1206
+L140E:  INC     HL
+        INC     HL
+        LD      D,(HL)
+        BIT     6,D
+        JR      Z,L141E
+        LD      IY,1795h
+        CALL    L1822
+        JR      L1425
+
+        ; Referenced from 1413
+L141E:  LD      IY,1772h
+        CALL    L17BF
+
+        ; Referenced from 141C
+L1425:  CALL    L02B7
+        CP      0FFh
+        RET     Z
+        BIT     7,A
+        JR      NZ,L1444
+        AND     07h
+        LD      IY,4000h
+        LD      A,A
+
+        ; Referenced from 143A
+L1436:  BIT     7,(IY+00h)
+        JR      NZ,L1436
+        LD      (IY+00h),28h    ; '('
+        LD      (IY+01h),A
+        LD      A,(HL)
+
+        ; Referenced from 142D
+L1444:  PUSH    DE
+        CALL    L1638
+        POP     DE
+        BIT     6,D
+        JR      NZ,L1462
+        LD      A,00h
+        LD      E,B
+        LD      IX,0F55h
+        LD      D,00h
+        ADD     IX,DE
+        CALL    L1087
+        LD      (L140C),DE
+        CALL    L02B7
+
+        ; Referenced from 144B
+L1462:  LD      IX,(L0456)
+        INC     IX
+        LD      A,(L11E3)
+        LD      C,A
+        LD      IY,4000h
+        CP      02h
+        JR      NZ,L1492
+        LD      A,(IX+01h)
+        OR      15h
+        EXX
+        LD      B,A
+        EXX
+        LD      A,(IX+01h)
+        OR      05h
+        LD      H,A
+        LD      L,27h           ; '''
+
+        ; Referenced from 1488
+L1484:  BIT     7,(IY+00h)
+        JR      NZ,L1484
+        LD      A,L
+        LD      (4000h),A
+        LD      A,H
+        LD      (4001h),A
+
+        ; Referenced from 1472
+L1492:  LD      D,00h
+        LD      A,C
+        CP      03h
+        JR      C,L149D
+        SUB     04h
+        LD      D,02h
+
+        ; Referenced from 1497
+L149D:  LD      E,A
+        LD      H,(IX+00h)
+        BIT     3,H
+        JR      Z,L14B5
+        LD      L,22h           ; '"'
+
+        ; Referenced from 14AB
+L14A7:  BIT     7,(IY+00h)
+        JR      NZ,L14A7
+        LD      A,L
+        LD      (4000h),A
+        LD      A,H
+        LD      (4001h),A
+
+        ; Referenced from 14A3
+L14B5:  PUSH    BC
+        LD      HL,15A5h
+        LD      B,00h
+        LD      A,(IX+02h)
+        AND     07h
+        LD      C,A
+        ADD     HL,BC
+        LD      A,(HL)
+        LD      (L15AD),A
+        LD      H,40h           ; '@'
+        LD      BC,15FBh
+        CALL    L15AF
+        BIT     6,(IX+01h)
+        JR      NZ,L1501
+        LD      IY,140Ch
+        LD      L,00h
+        LD      A,0A4h
+        ADD     A,E
+        LD      B,A
+        LD      C,(IY+01h)
+        LD      A,80h
+
+        ; Referenced from 14E4
+L14E3:  AND     (HL)
+        JP      M,L14E3
+        LD      L,D
+        LD      (HL),B
+        INC     L
+        LD      (HL),C
+        LD      L,00h
+        LD      A,0A0h
+        ADD     A,E
+        LD      B,A
+        LD      C,(IY+00h)
+        LD      A,80h
+
+        ; Referenced from 14F7
+L14F6:  AND     (HL)
+        JP      M,L14F6
+        LD      L,D
+        LD      (HL),B
+        INC     L
+        LD      (HL),C
+        JP      L1585
+
+        ; Referenced from 14D2
+L1501:  LD      IY,4000h
+        LD      A,(IX+1Ch)
+
+        ; Referenced from 150C
+L1508:  BIT     7,(IY+00h)
+        JR      NZ,L1508
+        LD      (IY+00h),0A6h
+        LD      (IY+01h),A
+        LD      A,(IX+1Dh)
+
+        ; Referenced from 151C
+L1518:  BIT     7,(IY+00h)
+        JR      NZ,L1518
+        LD      (IY+00h),0A2h
+        LD      (IY+01h),A
+        LD      A,(IX+1Eh)
+
+        ; Referenced from 152C
+L1528:  BIT     7,(IY+00h)
+        JR      NZ,L1528
+        LD      (IY+00h),0ACh
+        LD      (IY+01h),A
+        LD      A,(IX+1Fh)
+
+        ; Referenced from 153C
+L1538:  BIT     7,(IY+00h)
+        JR      NZ,L1538
+        LD      (IY+00h),0A8h
+        LD      (IY+01h),A
+        LD      A,(IX+20h)
+
+        ; Referenced from 154C
+L1548:  BIT     7,(IY+00h)
+        JR      NZ,L1548
+        LD      (IY+00h),0ADh
+        LD      (IY+01h),A
+        LD      A,(IX+21h)
+
+        ; Referenced from 155C
+L1558:  BIT     7,(IY+00h)
+        JR      NZ,L1558
+        LD      (IY+00h),0A9h
+        LD      (IY+01h),A
+        LD      A,(IX+22h)
+
+        ; Referenced from 156C
+L1568:  BIT     7,(IY+00h)
+        JR      NZ,L1568
+        LD      (IY+00h),0AEh
+        LD      (IY+01h),A
+        LD      A,(IX+23h)
+
+        ; Referenced from 157C
+L1578:  BIT     7,(IY+00h)
+        JR      NZ,L1578
+        LD      (IY+00h),0AAh
+        LD      (IY+01h),A
+
+        ; Referenced from 14FE
+L1585:  LD      A,(IX+24h)
+        SLA     A
+        SLA     A
+        SLA     A
+        SLA     A
+        POP     BC
+        OR      C
+        LD      IY,4000h
+        LD      A,A
+
+        ; Referenced from 159B
+L1597:  BIT     7,(IY+00h)
+        JR      NZ,L1597
+        LD      (IY+00h),28h    ; '('
+        LD      (IY+01h),A
+        RET
+
+L15A5:  EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        LD      A,(BC)
+        LD      C,0Eh
+        RRCA
+
+        ; Referenced from 14C3
+L15AD:  NOP
+
+        ; Referenced from 0796, 0B7E, 11E8
+L15AE:  NOP
+
+        ; Referenced from 14CB, 15F8
+        ; --- START PROC L15AF ---
+L15AF:  LD      A,(BC)
+        OR      A
+        RET     Z
+        INC     BC
+        LD      L,00h
+
+        ; Referenced from 15B7
+L15B5:  BIT     7,(HL)
+        JR      NZ,L15B5
+        LD      L,D
+        ADD     A,E
+        LD      (HL),A
+        INC     L
+        LD      A,(BC)
+        OR      A
+        JP      Z,L15F6
+        JP      P,L15F0
+        AND     7Fh             ; ''
+        PUSH    HL
+        LD      HL,15ADh
+        RR      (HL)
+        JP      NC,L15EF
+        PUSH    DE
+        LD      (L15D6+2),A     ; reference not aligned to instruction
+        LD      A,7Fh           ; ''
+
+        ; Referenced from 15D1
+L15D6:  SUB     (IX+00h)
+        PUSH    AF
+        SLA     A
+        LD      E,A
+        LD      D,00h
+        LD      A,(L11E4)
+        CALL    L1138
+        POP     AF
+        SUB     H
+        LD      H,A
+        LD      A,7Fh           ; ''
+        SUB     H
+        POP     DE
+        POP     HL
+        JR      L15F6
+
+        ; Referenced from 15CD
+L15EF:  POP     HL
+
+        ; Referenced from 15C2
+L15F0:  LD      (L15F3+2),A     ; reference not aligned to instruction
+
+        ; Referenced from 15F0
+L15F3:  LD      A,(IX+00h)
+
+        ; Referenced from 15BF, 15ED
+L15F6:  LD      (HL),A
+        INC     BC
+        JP      L15AF
+
+L15FB:  OR      B
+        LD      (BC),A
+        OR      H
+        INC     BC
+        JR      NC,L1604+1      ; reference not aligned to instruction
+        LD      B,B
+        ADD     A,L
+        LD      D,B
+
+        ; Referenced from 15FF
+L1604:  LD      B,60h           ; '`'
+        RLCA
+        LD      (HL),B
+        EX      AF,AF'
+        ADD     A,B
+        ADD     HL,BC
+        SUB     B
+        NOP
+        JR      C,L161F
+        LD      C,B
+        SUB     C
+        LD      E,B
+        LD      (DE),A
+        LD      L,B
+        INC     DE
+        LD      A,B
+        INC     D
+        ADC     A,B
+        DEC     D
+        SBC     A,B
+        NOP
+        INC     (HL)
+        LD      A,(BC)
+        LD      B,H
+        ADC     A,E
+
+        ; Referenced from 160D
+L161F:  LD      D,H
+        INC     C
+        LD      H,H
+        DEC     C
+        LD      (HL),H
+        LD      C,84h
+        RRCA
+        SUB     H
+        NOP
+        INC     A
+        LD      D,4Ch           ; 'L'
+        SUB     A
+        LD      E,H
+        JR      L169C
+
+L1630:  ADD     HL,DE
+        LD      A,H
+        LD      A,(DE)
+        ADC     A,H
+        DEC     DE
+        SBC     A,H
+        NOP
+        NOP
+
+        ; Referenced from 122C, 1303, 1445
+        ; --- START PROC L1638 ---
+L1638:  AND     07h
+        LD      (L11E3),A
+        LD      (HL),A
+        LD      E,(IX+0Bh)
+        LD      D,(IX+0Ch)
+        LD      A,D
+        OR      E
+        JR      Z,L164A
+        SET     4,(HL)
+
+        ; Referenced from 1646
+L164A:  BIT     3,(IX+06h)
+        JR      Z,L1652
+        SET     3,(HL)
+
+        ; Referenced from 164E
+L1652:  INC     HL
+        LD      A,(IX+1Ch)
+        LD      (HL),A
+        LD      BC,(L11E1)
+        INC     HL
+        LD      (HL),C
+        INC     HL
+        LD      (HL),B
+        INC     HL
+        LD      (HL),E
+        INC     HL
+        LD      (HL),D
+        INC     HL
+        LD      (HL),0FEh
+        CALL    L02B7
+        BIT     6,(IX+06h)
+        RET     Z
+        PUSH    BC
+        LD      C,(IX+1Dh)
+        LD      E,B
+        CALL    L0E06
+        CALL    L02B7
+        POP     BC
+        RET
+
+        ; Referenced from 167D, 16AE, 16D0
+L167B:  NOP
+        NOP
+
+        ; Referenced from 09B9
+        ; --- START PROC L167D ---
+L167D:  LD      (L167B),BC
+        LD      IX,1772h
+        CALL    L02B7
+        CALL    L1839
+        CP      0FFh
+        JR      Z,L16AE
+        AND     27h             ; '''
+        CP      26h             ; '&'
+        JR      Z,L16AA
+        AND     07h
+        LD      IY,4000h
+        LD      A,A
+
+        ; Referenced from 162E, 16A0
+L169C:  BIT     7,(IY+00h)
+        JR      NZ,L169C
+        LD      (IY+00h),28h    ; '('
+        LD      (IY+01h),A
+        RET
+
+        ; Referenced from 1693
+L16AA:  CALL    L16F1
+        RET
+
+        ; Referenced from 168D
+L16AE:  LD      BC,(L167B)
+        LD      IX,179Dh
+        CALL    L02B7
+        CALL    L1839
+        CP      0FFh
+        JR      Z,L16D0
+        AND     03h
+        LD      IX,0009h
+        LD      C,A
+        LD      B,00h
+        ADD     IX,BC
+        SET     1,(IX+00h)
+        RET
+
+        ; Referenced from 16BE
+L16D0:  LD      BC,(L167B)
+        LD      IX,17B3h
+        CALL    L02B7
+        CALL    L1839
+        CP      0FFh
+        RET     Z
+        AND     03h
+        LD      IX,0009h
+        LD      C,A
+        LD      B,00h
+        ADD     IX,BC
+        SET     1,(IX+00h)
+        RET
+
+        ; Referenced from 0867, 16AA
+        ; --- START PROC L16F1 ---
+L16F1:  LD      A,(L1400)
+        BIT     5,A
+        JR      NZ,L16FF
+        BIT     4,A
+        RET     Z
+        LD      A,06h
+        JR      L1701
+
+        ; Referenced from 16F6
+L16FF:  LD      A,07h
+
+        ; Referenced from 16FD
+L1701:  LD      (L0301),A
+        RET
+
+        ; Referenced from 0E5D, 1730
+L1705:  NOP
+        NOP
+
+        ; Referenced from 09BF
+        ; --- START PROC L1707 ---
+L1707:  CALL    L086C
+        CALL    L1130
+        LD      (L0456),HL
+        CALL    L01D1
+        LD      (IX+0Dh),A
+
+        ; Referenced from 05E1, 175B
+        ; --- START PROC L1716 ---
+L1716:  LD      D,00h
+        LD      E,(IX+0Dh)
+        SLA     E
+        RL      D
+        LD      HL,(L0A6C)
+        LD      A,(L0A6E)
+        ADD     HL,DE
+        ADC     A,00h
+        LD      C,02h
+        LD      DE,1705h
+        CALL    L01F9
+        LD      DE,(L1705)
+        LD      HL,(L0A6C)
+        LD      A,(L0A6E)
+        ADD     HL,DE
+        ADC     A,00h
+        LD      C,27h           ; '''
+        LD      DE,(L0456)
+        CALL    L01F9
+        RET
+
+        ; Referenced from 09C8
+        ; --- START PROC L1747 ---
+L1747:  LD      B,A
+        LD      C,10h
+        LD      IX,1B80h
+        LD      HL,1867h
+        LD      (L0456),HL
+
+        ; Referenced from 176F
+L1754:  LD      A,B
+        CP      (IX+0Dh)
+        JR      NZ,L175F
+        PUSH    BC
+        CALL    L1716
+        POP     BC
+
+        ; Referenced from 1758
+L175F:  LD      DE,0020h
+        ADD     IX,DE
+        LD      DE,0027h
+        LD      HL,(L0456)
+        ADD     HL,DE
+        LD      (L0456),HL
+        DEC     C
+        JR      NZ,L1754
+        RET
+
+L1772:  ADD     A,B
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        ADD     A,C
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        ADD     A,H
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        ADD     A,L
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        ADD     A,(HL)
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        ADD     A,D
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        RST     0x38
+
+L179D:  ADD     A,B
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        ADD     A,C
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        ADD     A,D
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        RST     0x38
+
+L17B3:  ADD     A,E
+        NOP
+        LD      D,B
+        NOP
+        NOP
+        NOP
+        NOP
+        RST     0x38
+
+        ; Referenced from 17E6, 181D, 1833
+L17BB:  NOP
+        NOP
+
+        ; Referenced from 1802, 180D
+L17BD:  NOP
+        NOP
+
+        ; Referenced from 1226, 1422
+        ; --- START PROC L17BF ---
+L17BF:  LD      C,0FFh
+        LD      L,0FFh
+        LD      DE,0007h
+        LD      H,(IX+06h)
+        JR      L17CD
+
+        ; Referenced from 17D9, 17E3, 17EA, 17FF, 1806
+L17CB:  ADD     IY,DE
+
+        ; Referenced from 17C9
+L17CD:  CALL    L02B7
+        LD      A,(IY+00h)
+        CP      0FFh
+        JR      Z,L1808
+        BIT     5,A
+        JR      NZ,L17CB
+        BIT     7,A
+        JR      NZ,L17EC
+        LD      A,(IY+01h)
+        CP      C
+        JR      NC,L17CB
+        LD      C,A
+        LD      (L17BB),IY
+        JR      L17CB
+
+        ; Referenced from 17DD
+L17EC:  LD      A,(IY+03h)
+        CP      B
+        JR      NZ,L17FB
+        BIT     7,H
+        JR      NZ,L17FB
+        PUSH    IY
+        POP     HL
+        LD      A,(HL)
+        RET
+
+        ; Referenced from 17F0, 17F4
+L17FB:  LD      A,(IY+06h)
+        CP      L
+        JR      NC,L17CB
+        LD      L,A
+        LD      (L17BD),IY
+        JR      L17CB
+
+        ; Referenced from 17D5
+L1808:  LD      A,L
+        CP      0FFh
+        JR      Z,L1812
+        LD      HL,(L17BD)
+        LD      A,(HL)
+        RET
+
+        ; Referenced from 180B
+        ; --- START PROC L1812 ---
+L1812:  LD      A,C
+
+        ; Referenced from 1837
+        ; --- START PROC L1813 ---
+L1813:  CP      (IX+1Ch)
+        JR      Z,L181D
+        JR      C,L181D
+        LD      A,0FFh
+        RET
+
+        ; Referenced from 1816, 1818
+L181D:  LD      HL,(L17BB)
+        LD      A,(HL)
+        RET
+
+        ; Referenced from 121D, 12DA, 1419
+        ; --- START PROC L1822 ---
+L1822:  CALL    L02B7
+        LD      A,(IY+00h)
+        BIT     7,A
+        JR      Z,L1830
+        PUSH    IY
+        POP     HL
+        RET
+
+        ; Referenced from 182A
+L1830:  LD      A,(IY+01h)
+        LD      (L17BB),IY
+        JR      L1813
+
+        ; Referenced from 1688, 16B9, 16DB
+        ; --- START PROC L1839 ---
+L1839:  LD      DE,0007h
+        JR      L1840
+
+        ; Referenced from 1849, 184F, 1855
+L183E:  ADD     IX,DE
+
+        ; Referenced from 183C
+L1840:  LD      A,(IX+00h)
+        LD      H,A
+        CP      0FFh
+        RET     Z
+        BIT     7,A
+        JR      NZ,L183E
+        LD      A,(IX+02h)
+        CP      C
+        JR      NZ,L183E
+        LD      A,(IX+03h)
+        CP      B
+        JR      NZ,L183E
+        LD      A,H
+        AND     27h             ; '''
+        CP      26h             ; '&'
+        JR      Z,L1865
+        AND     27h             ; '''
+        OR      0C0h
+        LD      (IX+00h),A
+
+        ; Referenced from 185C
+L1865:  LD      A,H
+        RET
+
+L1867:  NOP

@@ -17,3 +17,4 @@ z80_RAM_start			equ 0x00A00000
 z80_BUSREQ_port			equ	0x00A11100
 z80_Reset_port			equ 0x00A11200
 
+z80_ram_end     		equ 0x00A02000     	; end of non-reserved Z80 RAM
