@@ -18,3 +18,11 @@ z80_BUSREQ_port			equ	0x00A11100
 z80_Reset_port			equ 0x00A11200
 
 z80_ram_end     		equ 0x00A02000     	; end of non-reserved Z80 RAM
+
+
+ram_offsetNivelActual	    equ -$359C
+ram_offsetNivelMagnetoJoin	equ -$3B7E
+ram_offsetVidasActual      	equ -$38A8
+
+ram_offsetLecturaPad_A     	equ -$7A8
+ram_offsetLecturaPad_B     	equ -$7A6
