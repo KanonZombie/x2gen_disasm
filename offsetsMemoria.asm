@@ -6,9 +6,13 @@
 ; for RAM and ROM locations
 ; relative to A5 (0x200 in runtime)
 
-ram_offsetNivelActual	    equ -$359C
+ram_Offset                  equ $FFFF0000-$200
+
+ram_offsetNivelActual	    equ -$359C                      ; CC64
 ;ram_offsetNivelMagnetoJoin	equ -$3B7E
 ram_offsetVidasActual      	equ -$38A8
+
+ram_offsetFlagQuedanVidas    equ	ram_Offset+$C66C
 
 ram_offsetArrayNiveles      	equ -$E52
 ram_offsetArrayNivelesCount   	equ -$E54

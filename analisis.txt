@@ -1,5 +1,5 @@
-00005C84	1B7C 00FF C444             	MOVE.b	#$FF, -$3BBC(A5)
-00005C9E	1B7C 00FF C445             	MOVE.b	#$FF, -$3BBB(A5)
+00005C84	1B7C 00FF C444             	MOVE.b	#$FF, -$3BBC(A5)					; Pone FF en la parte alta de C644
+00005C9E	1B7C 00FF C445             	MOVE.b	#$FF, -$3BBB(A5)					; Pone FF en la parte baja de C644
 00005D8E	1B7C 00FF C444             	MOVE.b	#$FF, -$3BBC(A5)	;Predicted (Code-scan)
 00005DC0	1B7C 00FF C445             	MOVE.b	#$FF, -$3BBB(A5)	;Predicted (Code-scan)
 00006028	D0B9 0000 00A0             	ADD.l	%00000000000000000000000010100000, D0 ; add binary
