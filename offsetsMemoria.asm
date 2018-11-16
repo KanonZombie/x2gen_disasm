@@ -12,7 +12,7 @@ ram_offsetNivelActual	    equ -$359C                      ; CC64
 ;ram_offsetNivelMagnetoJoin	equ -$3B7E
 ram_offsetVidasActual      	equ -$38A8
 
-ram_offsetFlagQuedanVidas    equ	ram_Offset+$C66C
+ram_offsetFlagQuedanVidas       equ	ram_Offset+$C66C
 
 ram_offsetArrayNiveles      	equ -$E52
 ram_offsetArrayNivelesCount   	equ -$E54
