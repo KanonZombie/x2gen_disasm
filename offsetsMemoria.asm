@@ -8,11 +8,28 @@
 
 ram_Offset                  equ $FFFF0000-$200
 
-ram_offsetNivelActual	    equ -$359C                      ; CC64
+ram_offsetNivelActual	    equ ram_Offset+$CC64            ; CC64 -$359C(A5)
+ram_offsetNivelActualBack	equ ram_Offset+$C66E            ; C66E -$3B92(A5)
 ;ram_offsetNivelMagnetoJoin	equ -$3B7E
-ram_offsetVidasActual      	equ -$38A8
+;ram_offsetVidasActual      	equ -$38A8  ;C958
+ram_offsetVidasActual       equ	ram_Offset+$C958
+ram_offsetVidasActual2up    equ	ram_Offset+$C956
 
-ram_offsetFlagQuedanVidas       equ	ram_Offset+$C66C
+; C956 vidas 2up
+
+ram_offsetSaludBack             equ	ram_Offset+$C66C
+ram_offsetSaludActual           equ	ram_Offset+$EB10
+
+;CLR.w	-$3B96(A5)							; C66A
+;	MOVE.w	-$17E0(A5), ram_offsetSaludBack2up(A5)	;Predicted (Code-scan) RAM EA20 -> RAM C66A (si termian ok nivel no entra)
+ram_offsetSalud2up              equ	ram_Offset+$EA20
+ram_offsetSaludBack2up          equ	ram_Offset+$C66A
+
+ram_offsetPersonaje1up          equ	ram_Offset+$C644
+ram_offsetPersonaje2up          equ	ram_Offset+$C645
+
+ram_offsetAddressData1up        equ	ram_Offset+$EAA8 ;	MOVE.l	$2(A0), -$1758(A5)
+ram_offsetAddressData2up        equ	ram_Offset+$E9B8 ;	MOVE.l	$2(A0), -$1848(A5)
 
 ram_offsetArrayNiveles      	equ -$E52
 ram_offsetArrayNivelesCount   	equ -$E54
@@ -39,6 +56,9 @@ ram_offsetNivelCerebroScreenFinalText       equ -$3B8E
 
 ram_offsetLecturaPad_A     	equ -$7A8
 ram_offsetLecturaPad_B     	equ -$7A6
+
+rom_offsetJMP_00006242                	        equ JMP_00006242-$200
+rom_offsetRNGSeleccionPersonaje                	equ SubrutinaRNGSeleccionPersonaje-$200
 
 rom_offsetLecturaPads                       	equ SubrutinaLeerPads-$200       ; lee primero pad 1 y despues 2
 rom_offsetLecturaPad                          	equ SubrutinaLeerJoypad-$200       ; lee pad por parametro
