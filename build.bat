@@ -3,7 +3,7 @@
 SET binReasm=x2_reasm
 SET binOrigen=X-Men 2 - Clone Wars (W) [!]
 
-IF EXIST %binReasm%.bin move /Y %binReasm%.bin %binReasm%.prev.bin >NUL
+IF EXIST %binReasm%.bin move /Y %binReasm%.bin research\%binReasm%.prev.bin >NUL
 
 ECHO(
 ECHO [104;93m**********************************************************************************[0m
@@ -26,7 +26,7 @@ ECHO [103;30m Compilando componentes (z80)                                     
 ECHO [103;30m                                                                                  [0m
 ECHO(
 
-yaza driverz80\driverz80.z80 > salidaZ80.txt
+tools\yaza driverz80\driverz80.z80 > research\salidaZ80.txt
 
 REM ECHO [104;93m**********************************************************************************[0m
 
@@ -54,13 +54,13 @@ ECHO [104;93m         ``                                                       
 
 ECHO(
 
-asm68k /ow- /k /p /o ae- %binOrigen%.asm, %binReasm%.bin >errors.txt, , %binReasm%.lst
+tools\asm68k /ow- /k /p /o ae- %binOrigen%.asm, %binReasm%.bin > research\errors.txt, , %binReasm%.lst
 
 REM fixheadr.exe x2_reasm.bin
 
-IF EXIST VBinDiff.exe VBinDiff "%binOrigen%.bin" "%binReasm%.bin"
+IF EXIST tools\VBinDiff.exe tools\VBinDiff "%binOrigen%.bin" "%binReasm%.bin"
 
-FC "%binOrigen%.bin" "%binReasm%.bin" > diferencias.txt
+FC "%binOrigen%.bin" "%binReasm%.bin" > research\diferencias.txt
 
 ECHO total lineas en diferencias
 FC "%binOrigen%.bin" "%binReasm%.bin" | find /c /v ""
