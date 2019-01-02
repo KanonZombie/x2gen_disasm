@@ -31,8 +31,10 @@ ram_offsetPersonaje2up          equ	ram_Offset+$C645
 ram_offsetAddressData1up        equ	ram_Offset+$EAA8 ;	MOVE.l	$2(A0), -$1758(A5)
 ram_offsetAddressData2up        equ	ram_Offset+$E9B8 ;	MOVE.l	$2(A0), -$1848(A5)
 
-ram_offsetAddressIndiceDEMO          equ	ram_Offset+$C670 ; -$3B90(A5)
-ram_offsetAddressFlagDesactivaSFX    equ	ram_Offset+$E954 ; -$18AC(A5)
+ram_offsetAddressIndiceDEMO             equ	ram_Offset+$C670 ; -$3B90(A5)
+ram_offsetAddressFlagDesactivaSFX       equ	ram_Offset+$E954 ; -$18AC(A5)
+ram_offsetFlagEsDEMO                    equ	ram_Offset+$C7E6 ; -$3A1A(A5)
+ram_offsetFlagInputParaDEMO             equ	ram_Offset+$C7E2 ; -$3A1E
 
 ram_offsetArrayNiveles      	equ -$E52
 ram_offsetArrayNivelesCount   	equ -$E54
