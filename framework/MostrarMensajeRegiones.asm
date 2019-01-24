@@ -8,7 +8,7 @@
 	TST.b	D0					; compara con cero
 	BEQ.w	Trampa				; si la consola no tiene region, pum
 
-	LEA	loc_000001F0, A0		; direccion de regiones declaradas en el encabezado
+	LEA	CountryCodes, A0		; direccion de regiones declaradas en el encabezado
 	MOVE.w	#$000F, D1			; cantidad de caracteres en el encabezado de region
 
 	@LoopCadaRegionEncabezado:
@@ -73,7 +73,7 @@ SaltarSetear1:
 	LEA	StringDevelopedFor(PC), A0	; 'DEVELOPED FOR USE ONLY WITH' ;Predicted (Code-scan)
 	MOVE.b	(A0)+, D0				; Coordenada y
 	BSR.w	ImprimeTexto			
-	LEA	loc_000001F0, A1			; a1 = 'JEU             ' ; Country codes permitidos
+	LEA	CountryCodes, A1			; a1 = 'JEU             ' ; Country codes permitidos
 
 MuestraRegionPermitida:				; loop cada country code permitido
 	CMPI.b	#$20, (A1)								; cuando encuentra espacio (final) en los country codes
@@ -92,7 +92,7 @@ ForEachCountry:						; loop descripciones
 	CMPI.b	#$20, $1(A1)							; compara si el siguiente country es espacio (ie actual ultimo)
 	BNE.b	ImprimirDescripcionSistema				; branch si da falso (hay mas)
 
-	CMPA.l	#loc_000001F0, A1						; compara si cambio a1 (es la primera que entra)
+	CMPA.l	#CountryCodes, A1						; compara si cambio a1 (es la primera que entra)
 	BEQ.b	ImprimirDescripcionSistema				; branch si es cierto
 
 	LEA	StringAmpersand(PC), A0						; no hay mas countries, y no es el primero
