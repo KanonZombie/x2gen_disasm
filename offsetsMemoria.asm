@@ -44,10 +44,10 @@ ram_offsetNivelSavageC1Jungle_1          	equ -$3B5A
 ram_offsetNivelSavageB1Jungle_2          	equ -$3B5E
 ram_offsetNivelSavageA2Perimeter_1         	equ -$3B60
 ram_offsetNivelSpaceB1Maintenance_Shaft     equ -$3B66
+ram_offsetNivelCloneA5_BroodBoss            equ -$3B6E
 ram_offsetNivelSiberiaB1Blizzard          	equ -$3B70
 ram_offsetNivelSentinelsD1Exterior_1        equ -$3B72
 ram_offsetNivelCerebroScreenSentinels       equ -$3B7A
-
 ram_offsetNivelCerebroScreenAvalon          equ -$3B7C
 ram_offsetNivelCerebroScreenBaniMaza        equ -$3B7E
 ram_offsetNivelCerebroScreenSavage          equ -$3B80
@@ -64,6 +64,19 @@ ram_offsetLecturaPad_B     	equ -$7A6
 
 rom_offsetJMP_00006242                	        equ JMP_00006242-$200
 rom_offsetRNGSeleccionPersonaje                	equ SubrutinaRNGSeleccionPersonaje-$200
+
+rom_Nivel_SiberiaB1Blizzard                 	equ SubrutinaNivel_SiberiaB1Blizzard-$200
+rom_Nivel_CerebroScreenSentinels                equ SubrutinaNivel_CerebroScreenSentinels-$200
+rom_Nivel_SentinelsD1Exterior_1                 equ SubrutinaNivel_SentinelsD1Exterior_1-$200
+rom_Nivel_CerebroScreenPlayerSelect             equ SubrutinaNivel_CerebroScreenPlayerSelect-$200
+rom_Nivel_CerebroScreenLogoAndDemo              equ SubrutinaNivel_CerebroScreenLogoAndDemo-$200
+rom_Nivel_CerebroScreen_Failure                 equ SubrutinaNivel_CerebroScreen_Failure-$200
+rom_Nivel_CerebroScreen_Credits                 equ SubrutinaNivel_CerebroScreen_Credits-$200
+rom_Nivel_CerebroScreenFinalText                equ SubrutinaNivel_CerebroScreenFinalText-$200
+rom_Nivel_CloneA5_BroodBoss                     equ SubrutinaNivel_CloneA5_BroodBoss-$200
+rom_Nivel_CloneA2_Vertical_Corridor_1           equ SubrutinaNivel_CloneA2_Vertical_Corridor_1-$200
+rom_Nivel_CloneA1_Factory_Floor_1               equ SubrutinaNivel_CloneA1_Factory_Floor_1-$200
+rom_Nivel_CerebroScreen_Clone                   equ SubrutinaNivel_CerebroScreen_Clone-$200
 
 rom_offsetLecturaPads                       	equ SubrutinaLeerPads-$200       ; lee primero pad 1 y despues 2
 rom_offsetLecturaPad                          	equ SubrutinaLeerJoypad-$200       ; lee pad por parametro

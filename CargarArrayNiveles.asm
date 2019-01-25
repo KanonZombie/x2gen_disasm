@@ -1,22 +1,22 @@
 CargarArrayNiveles:
 	LINK	A6, #0
 
-	PEA	$298A(A5) 											; JMP	loc_000FD6A8
+	PEA	rom_Nivel_SiberiaB1Blizzard(A5) 											; JMP	loc_000FD6A8
 	PEA	String_SiberiaB1Blizzard(PC) 	
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)											; JMP	CargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelSiberiaB1Blizzard(A5)
 
-	PEA	$E92(A5)
+	PEA	rom_Nivel_CerebroScreenSentinels(A5)
 	PEA	loc_00005C50(PC)				;CerebroScreen Sentinels
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenSentinels(A5);CerebroScreen Sentinels
 
-	PEA	$2412(A5)
+	PEA	rom_Nivel_SentinelsD1Exterior_1(A5)
 	PEA	loc_00005C38(PC)				;SentinelsD1 Exterior_1
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelSentinelsD1Exterior_1(A5);SentinelsD1 Exterior_1
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005C1C(PC)				;CerebroScreen PlayerSelect
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -26,7 +26,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B74(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005BE8(PC)				;CerebroScreen PlayerSelect
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -51,7 +51,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B4A(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005B70(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -61,7 +61,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B4C(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005B40(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -71,7 +71,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B4E(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005B0E(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -81,7 +81,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B50(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005AE2(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -101,7 +101,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B54(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005A84(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -111,7 +111,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelBaniMazaA1Moving_Blocks(A5) ;BaniMazaA1 Moving_Blocks
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005A4E(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -131,7 +131,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelSavageC1Jungle_1(A5)		; SavageC1 Jungle_1
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_000059F0(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -141,7 +141,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelSavageB1Jungle_2(A5)			;SavageB1 Jungle_2
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_000059C2(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -151,7 +151,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelSavageA2Perimeter_1(A5) ;SavageA2 Perimeter_1
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005990(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -161,7 +161,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B62(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_0000595E(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -181,7 +181,7 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelSpaceB1Maintenance_Shaft(A5);SpaceB1 Maintenance_Shaft
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_00005902(PC)				; CerebroScreen PlayerSelect
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
@@ -191,61 +191,60 @@ CargarArrayNiveles:
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B68(A5)
 
-	PEA	$EBA(A5)
-	PEA	loc_000058D6(PC)
+	PEA	rom_Nivel_CerebroScreen_Clone(A5)
+	PEA	CerebroScreen_Clone(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenClone(A5);CerebroScreen Clone
 
-	PEA	$10CA(A5)
-	PEA	loc_000058BE(PC)
+	PEA	rom_Nivel_CloneA1_Factory_Floor_1(A5)
+	PEA	String_CloneA1_Factory_Floor_1(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B6A(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_000058A2(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
 
-	PEA	$118A(A5)
+	PEA	rom_Nivel_CloneA2_Vertical_Corridor_1(A5)
 	PEA	CloneA2_Vertical_Corridor_1(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, -$3B6C(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_0000586A(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
 
-	PEA	$1442(A5)
-	PEA	loc_00005858(PC)
+	PEA	rom_Nivel_CloneA5_BroodBoss(A5)
+	PEA	String_CloneA5_BroodBoss(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
-	MOVE.b	D0, -$3B6E(A5)
+	MOVE.b	D0, ram_offsetNivelCloneA5_BroodBoss(A5)
 
-	PEA	$ED2(A5)
-	PEA	loc_00005840(PC)
+	PEA	rom_Nivel_CerebroScreenFinalText(A5)
+	PEA	String_CerebroScreen_FinalText(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
-	MOVE.b	D0, ram_offsetNivelCerebroScreenFinalText(A5) ; CerebroScreen FinalText
+	MOVE.b	D0, ram_offsetNivelCerebroScreenFinalText(A5) 
 
-	PEA	$EDA(A5)
+	PEA	rom_Nivel_CerebroScreen_Credits(A5)
 	PEA	CerebroScreen_Credits(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
-	MOVE.b	D0, ram_offsetNivelCerebroScreenCredits(A5) ;CerebroScreen Credits
+	MOVE.b	D0, ram_offsetNivelCerebroScreenCredits(A5) 
 
-	PEA	$EE2(A5)
+	PEA	rom_Nivel_CerebroScreen_Failure(A5)
 	PEA	CerebroScreen_Failure(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenFailure(A5)
 
-	PEA	$EC2(A5)
+	PEA	rom_Nivel_CerebroScreenPlayerSelect(A5)
 	PEA	loc_000057F8(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
-	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5);CerebroScreen PlayerSelect
+	MOVE.b	D0, ram_offsetNivelCerebroScreenPlayerSelect(A5)
 
-	PEA	$ECA(A5)
+	PEA	rom_Nivel_CerebroScreenLogoAndDemo(A5)
 	PEA	loc_000057DE(PC)
 	JSR	rom_offsetRutinaCargarDataDeNivel(A5)
 	MOVE.b	D0, ram_offsetNivelCerebroScreenLogoAndDemo(A5)
 
 	UNLK	A6
 	RTS
-

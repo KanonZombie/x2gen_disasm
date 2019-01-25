@@ -6,9 +6,9 @@ CerebroScreen_Failure:
 	dc.b	'CerebroScreen Failure',0 ;0x0 (0x00005814-0x0000582A, Entry count: 0x16) [Unknown data]
 CerebroScreen_Credits:
 	dc.b	'CerebroScreen Credits',0 ;0x0 (0x0000582A-0x00005840, Entry count: 0x16) [Unknown data]
-loc_00005840:
+String_CerebroScreen_FinalText:
 	dc.b	'CerebroScreen FinalText',0 ;0x0 (0x00005840-0x00005858, Entry count: 0x18) [Unknown data]
-loc_00005858:
+String_CloneA5_BroodBoss:
 	dc.b	'CloneA5 BroodBoss',0 ;0x0 (0x00005858-0x0000586A, Entry count: 0x12) [Unknown data]
 loc_0000586A:
 	dc.b	'CerebroScreen PlayerSelect',0,0 ;0x0 (0x0000586A-0x00005886, Entry count: 0x1C) [Unknown data]
@@ -16,9 +16,9 @@ CloneA2_Vertical_Corridor_1:
 	dc.b	'CloneA2 Vertical_Corridor_1',0 ;0x0 (0x00005886-0x000058A2, Entry count: 0x1C) [Unknown data]
 loc_000058A2:
 	dc.b	'CerebroScreen PlayerSelect',0,0 ;0x0 (0x000058A2-0x000058BE, Entry count: 0x1C) [Unknown data]
-loc_000058BE:
+String_CloneA1_Factory_Floor_1:
 	dc.b	'CloneA1 Factory_Floor_1',0 ;0x0 (0x000058BE-0x000058D6, Entry count: 0x18) [Unknown data]
-loc_000058D6:
+CerebroScreen_Clone:
 	dc.b	'CerebroScreen Clone',0 ;0x0 (0x000058D6-0x000058EA, Entry count: 0x14) [Unknown data]
 loc_000058EA:
 	dc.b	'SpaceA1 Space_Elevator',0,0 ;0x0 (0x000058EA-0x00005902, Entry count: 0x18) [Unknown data]
