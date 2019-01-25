@@ -20,11 +20,11 @@ String_CloneA1_Factory_Floor_1:
 	dc.b	'CloneA1 Factory_Floor_1',0 ;0x0 (0x000058BE-0x000058D6, Entry count: 0x18) [Unknown data]
 CerebroScreen_Clone:
 	dc.b	'CerebroScreen Clone',0 ;0x0 (0x000058D6-0x000058EA, Entry count: 0x14) [Unknown data]
-loc_000058EA:
+String_SpaceA1_Space_Elevator:
 	dc.b	'SpaceA1 Space_Elevator',0,0 ;0x0 (0x000058EA-0x00005902, Entry count: 0x18) [Unknown data]
 loc_00005902:
 	dc.b	'CerebroScreen PlayerSelect',0,0 ;0x0 (0x00005902-0x0000591E, Entry count: 0x1C) [Unknown data]
-loc_0000591E:
+String_SpaceB1_Maintenance_Shaft:
 	dc.b	'SpaceB1 Maintenance_Shaft',0 ;0x0 (0x0000591E-0x00005938, Entry count: 0x1A) [Unknown data]
 loc_00005938:
 	dc.b	'CerebroScreen Space',0 ;0x0 (0x00005938-0x0000594C, Entry count: 0x14) [Unknown data]

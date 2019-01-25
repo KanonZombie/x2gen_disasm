@@ -44,6 +44,8 @@ ram_offsetNivelSavageC1Jungle_1          	equ -$3B5A
 ram_offsetNivelSavageB1Jungle_2          	equ -$3B5E
 ram_offsetNivelSavageA2Perimeter_1         	equ -$3B60
 ram_offsetNivelSpaceB1Maintenance_Shaft     equ -$3B66
+ram_offsetNivelCloneA1_Factory_Floor_1      equ -$3B6A
+ram_offsetNivelCloneA2_Vertical_Corridor_1  equ -$3B6C
 ram_offsetNivelCloneA5_BroodBoss            equ -$3B6E
 ram_offsetNivelSiberiaB1Blizzard          	equ -$3B70
 ram_offsetNivelSentinelsD1Exterior_1        equ -$3B72
@@ -77,6 +79,28 @@ rom_Nivel_CloneA5_BroodBoss                     equ SubrutinaNivel_CloneA5_Brood
 rom_Nivel_CloneA2_Vertical_Corridor_1           equ SubrutinaNivel_CloneA2_Vertical_Corridor_1-$200
 rom_Nivel_CloneA1_Factory_Floor_1               equ SubrutinaNivel_CloneA1_Factory_Floor_1-$200
 rom_Nivel_CerebroScreen_Clone                   equ SubrutinaNivel_CerebroScreen_Clone-$200
+rom_Nivel_SpaceA1_Space_Elevator                equ SubrutinaNivel_SpaceA1_Space_Elevator-$200
+rom_Nivel_SpaceB1_Maintenance_Shaft             equ SubrutinaNivel_SpaceB1_Maintenance_Shaft-$200
+rom_Nivel_CerebroScreenSpace                    equ SubrutinaNivel_CerebroScreenSpace-$200
+rom_Nivel_SavageA4_Chamber                      equ SubrutinaNivel_SavageA4_Chamber-$200
+rom_Nivel_SavageA3_Perimeter_2                  equ SubrutinaNivel_SavageA3_Perimeter_2-$200
+rom_Nivel_SavageA2_Perimeter_1                  equ SubrutinaNivel_SavageA2_Perimeter_1-$200
+rom_Nivel_SavageB1_Jungle_2                     equ SubrutinaNivel_SavageB1_Jungle_2-$200
+rom_Nivel_SavageC1_Jungle_1                     equ SubrutinaNivel_SavageC1_Jungle_1-$200
+rom_Nivel_CerebroScreen_Savage                  equ SubrutinaNivel_CerebroScreen_Savage-$200
+rom_Nivel_BaniMazaA2_ApocalypseBoss             equ SubrutinaNivel_BaniMazaA2_ApocalypseBoss-$200
+rom_Nivel_NivelBaniMazaA1Moving_Blocks          equ SubrutinaNivel_NivelBaniMazaA1Moving_Blocks-$200
+rom_Nivel_BaniMazaB2_Exterior                   equ SubrutinaNivel_BaniMazaB2_Exterior-$200
+rom_Nivel_CerebroScreenBaniMaza                 equ SubrutinaNivel_CerebroScreenBaniMaza-$200
+rom_Nivel_AvalonA4_Throne_Room                  equ SubrutinaNivel_AvalonA4_Throne_Room-$200
+rom_Nivel_AvalonA3_Exodus                       equ SubrutinaNivel_AvalonA3_Exodus-$200
+rom_Nivel_AvalonA2_Falling_Room                 equ SubrutinaNivel_AvalonA2_Falling_Room-$200
+rom_Nivel_AvalonB2_InnerShell                   equ SubrutinaNivel_AvalonB2_InnerShell-$200
+rom_Nivel_AvalonB1_Exterior                     equ SubrutinaNivel_AvalonB1_Exterior-$200
+rom_Nivel_CerebroScreenAvalon                   equ SubrutinaNivel_CerebroScreenAvalon-$200
+rom_Nivel_SentinelsB2_Exterior_Escape           equ SubrutinaNivel_SentinelsB2_Exterior_Escape-$200
+rom_Nivel_SentinelsA1_CoolantCore               equ SubrutinaNivel_SentinelsA1_CoolantCore-$200
+rom_Nivel_SentinelsB1_Exterior_3                equ SubrutinaNivel_SentinelsB1_Exterior_3-$200
 
 rom_offsetLecturaPads                       	equ SubrutinaLeerPads-$200       ; lee primero pad 1 y despues 2
 rom_offsetLecturaPad                          	equ SubrutinaLeerJoypad-$200       ; lee pad por parametro
@@ -94,3 +118,6 @@ rom_offsetUbicacionArrayNightcrawler            equ UbicacionArrayNightcrawler-$
 rom_offsetUbicacionArrayPsylocke                equ UbicacionArrayPsylocke-$200-$2
 rom_offsetUbicacionArrayWolverine               equ UbicacionArrayWolverine-$200-$2
 rom_offsetUbicacionArrayMagneto                 equ UbicacionArrayMagneto-$200-$2
+
+
+rom_offsetRutina_CerebroScreenFinalText         equ Subrutina_CerebroScreenFinalText-$200
