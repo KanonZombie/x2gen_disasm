@@ -26,7 +26,7 @@ ECHO [103;30m Compilando componentes (z80)                                     
 ECHO [103;30m                                                                                  [0m
 ECHO(
 
-tools\yaza driverz80\driverz80.z80 > research\salidaZ80.txt
+..\asmTools\yaza driverz80\driverz80.z80 > research\salidaZ80.txt
 
 REM ECHO [104;93m**********************************************************************************[0m
 
@@ -54,15 +54,15 @@ ECHO [104;93m         ``                                                       
 
 ECHO(
 
-tools\asm68k /ow- /k /p /o ae- %binOrigen%.asm, %binReasm%.bin > research\errors.txt, , %binReasm%.lst
+..\asmTools\asm68k /ow- /k /p /o ae- %binOrigen%.asm, %binReasm%.bin > research\errors.txt, , %binReasm%.lst
 
-REM fixheadr.exe x2_reasm.bin
+REM ..\asmTools\fixheadr.exe x2_reasm.bin
 
-IF EXIST tools\VBinDiff.exe tools\VBinDiff "%binOrigen%.bin" "%binReasm%.bin"
+REM IF EXIST ..\asmTools\VBinDiff.exe ..\asmTools\VBinDiff "%binOrigen%.bin" "%binReasm%.bin"
 
 FC "%binOrigen%.bin" "%binReasm%.bin" > research\diferencias.txt
 
 ECHO total lineas en diferencias
 FC "%binOrigen%.bin" "%binReasm%.bin" | find /c /v ""
 
-REM analizador.exe  diferencias.txt x2_reasm.lst analisis.txt
+..\asmTools\analizador.exe research\diferencias.txt x2_reasm.lst analisis.txt
