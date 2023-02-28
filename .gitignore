@@ -1,14 +1,5 @@
-
-errors.txt
-*.lst
-VBinDiff.exe
-x2_reasm.bin
-x2_reasm.prev.bin
-yazd.exe
-yaza.exe
-null
-salidaZ80.txt
-paletaSF2.bin
-paleta.bin
 X-Men 2 - Clone Wars (W) \[!\].bin
 .vscode
+build/*
+!build/*.asm
+*.exs

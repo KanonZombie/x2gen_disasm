@@ -1,6 +1,7 @@
 @echo off
 
 SET binReasm=x2_reasm
+SET fuenteBase=reasm
 SET binOrigen=X-Men 2 - Clone Wars (W) [!]
 
 IF EXIST %binReasm%.bin move /Y %binReasm%.bin research\%binReasm%.prev.bin >NUL
@@ -26,7 +27,8 @@ ECHO [103;30m Compilando componentes (z80)                                     
 ECHO [103;30m                                                                                  [0m
 ECHO(
 
-..\asmTools\yaza driverz80\driverz80.z80 > research\salidaZ80.txt
+..\asmTools\yaza driverz80\driverz80.z80
+REM  > research\salidaZ80.txt
 
 REM ECHO [104;93m**********************************************************************************[0m
 
@@ -54,15 +56,17 @@ ECHO [104;93m         ``                                                       
 
 ECHO(
 
-..\asmTools\asm68k /ow- /k /p /o ae- %binOrigen%.asm, %binReasm%.bin > research\errors.txt, , %binReasm%.lst
+@md build\%fuenteBase% >nul 2>&1
+..\asmTools\asm68k /ow- /k /p /o ae- %binOrigen%.asm, build\%fuenteBase%\%binOrigen%.bin, , build\%fuenteBase%\%binOrigen%.lst
 
-REM ..\asmTools\fixheadr.exe x2_reasm.bin
-
-REM IF EXIST ..\asmTools\VBinDiff.exe ..\asmTools\VBinDiff "%binOrigen%.bin" "%binReasm%.bin"
-
-FC "%binOrigen%.bin" "%binReasm%.bin" > research\diferencias.txt
+FC "%binOrigen%.bin" "build\%fuenteBase%\%binOrigen%.bin" > research\diferencias.txt
 
 ECHO total lineas en diferencias
-FC "%binOrigen%.bin" "%binReasm%.bin" | find /c /v ""
+FC "%binOrigen%.bin" "build\%fuenteBase%\%binOrigen%.bin" | find /c /v ""
 
-..\asmTools\analizador.exe research\diferencias.txt x2_reasm.lst analisis.txt
+REM ..\asmTools\analizador.exe research\diferencias.txt "build\%fuenteBase%\%binOrigen%.lst" research\analisis.txt
+
+ECHO Diferencias esperadas: 1284
+ECHO(
+..\asmTools\CheckSumFixer.exe  "build\%fuenteBase%\%binOrigen%.bin"
+ECHO(

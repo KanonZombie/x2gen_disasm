@@ -1,10 +1,10 @@
-00005C84	1B7C 00FF C444             	MOVE.b	#$FF, -$3BBC(A5)					; Pone FF en la parte alta de C644
-00005C9E	1B7C 00FF C445             	MOVE.b	#$FF, -$3BBB(A5)					; Pone FF en la parte baja de C644
-00005D8E	1B7C 00FF C444             	MOVE.b	#$FF, -$3BBC(A5)	;Predicted (Code-scan)
-00005DC0	1B7C 00FF C445             	MOVE.b	#$FF, -$3BBB(A5)	;Predicted (Code-scan)
-00006028	D0B9 0000 00A0             	ADD.l	%00000000000000000000000010100000, D0 ; add binary
-00006662	1B7C 00FF C444             	MOVE.b	#$FF, -$3BBC(A5)
-00006668	1B7C 00FF C445             	MOVE.b	#$FF, -$3BBB(A5)
+00005C84	1B7C 00FF C444             	MOVE.b	#$FF, ram_offsetPersonaje1up(A5)	; C644
+00005C9E	1B7C 00FF C445             	MOVE.b	#$FF, ram_offsetPersonaje2up(A5)	; Pone FF en la parte baja de C644
+00005D8E	1B7C 00FF C444             	MOVE.b	#$FF, ram_offsetPersonaje1up(A5)	;Setea 1up como "ninguno"
+00005DC0	1B7C 00FF C445             	MOVE.b	#$FF, ram_offsetPersonaje2up(A5)	; setea 2up como "ninguno"
+00006028	0680 0000 00A0             	ADD.l	#$A0, D0			; se ve como diferencia por optimizacion (cambia ADD por ADDI)
+00006662	1B7C 00FF C444             	MOVE.b	#$FF, ram_offsetPersonaje1up(A5)
+00006668	1B7C 00FF C445             	MOVE.b	#$FF, ram_offsetPersonaje2up(A5)
 00010826	0646 0280                  	ADD.w	#$0280, D6
 00010F1A	0680 0000 00D7             	ADD.l	#$000000D7, D0
 0001350A	0440 0040                  	SUB.w	#$0040, D0
@@ -194,8 +194,8 @@
 00065B84	0640 0080                  	ADD.w	#$0080, D0	;Predicted (Code-scan)
 00065BA4	0640 6690                  	ADD.w	#$6690, D0	;Predicted (Code-scan)
 00065BB2	0640 0080                  	ADD.w	#$0080, D0	;Predicted (Code-scan)
-00065CC6	1B7C 00FF C444             	MOVE.b	#$FF, -$3BBC(A5)	;Predicted (Code-scan)
-00065D7E	1B7C 00FF C445             	MOVE.b	#$FF, -$3BBB(A5)
+00065CC6	1B7C 00FF C444             	MOVE.b	#$FF, ram_offsetPersonaje1up(A5)	;Predicted (Code-scan)
+00065D7E	1B7C 00FF C445             	MOVE.b	#$FF, ram_offsetPersonaje2up(A5)
 0006641A	0640 2074                  	ADD.w	#$2074, D0
 00066622	0640 2074                  	ADD.w	#$2074, D0
 000667D4	0640 2074                  	ADD.w	#$2074, D0

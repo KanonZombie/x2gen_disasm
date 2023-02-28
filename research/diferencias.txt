@@ -1,4 +1,4 @@
-Comparando archivos X-Men 2 - Clone Wars (W) [!].bin y X2_REASM.BIN
+Comparando archivos X-Men 2 - Clone Wars (W) [!].bin y BUILD\REASM\X-MEN 2 - CLONE WARS (W) [!].BIN
 00005C86: FF 00
 00005CA0: FF 00
 00005D90: FF 00
