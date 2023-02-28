@@ -66,7 +66,8 @@ FC "%binOrigen%.bin" "build\%fuenteBase%\%binOrigen%.bin" | find /c /v ""
 
 REM ..\asmTools\analizador.exe research\diferencias.txt "build\%fuenteBase%\%binOrigen%.lst" research\analisis.txt
 
-ECHO Diferencias esperadas: 1284
+ECHO(
+ECHO Diferencias esperadas: 1282
 ECHO(
 ..\asmTools\CheckSumFixer.exe  "build\%fuenteBase%\%binOrigen%.bin"
 ECHO(

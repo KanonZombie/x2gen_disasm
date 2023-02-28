@@ -572,8 +572,8 @@
 0015B090	0640 0080                  	ADD.w	#$0080, D0
 0015B0AE	0640 0080                  	ADD.w	#$0080, D0
 0015B1C6	0200 0003                  	AND.b	#3, D0
-0015C22A	4EF0 90FE                  	JMP	-$2(A0,A1.w)
-0015C24E	4EF0 90FE                  	JMP	-$2(A0,A1.w)
+0015C22A	4EF0 90FE                  	JMP	-$2(A0,A1.w)		; dif en disassembly, pero func equivalente
+0015C24E	4EF0 90FE                  	JMP	-$2(A0,A1.w)		; dif en disassembly, pero func equivalente
 0015C34A	0640 0060                  	ADD.w	#$0060, D0
 0015C35E	0640 0060                  	ADD.w	#$0060, D0
 0015C374	0640 0060                  	ADD.w	#$0060, D0
@@ -617,7 +617,6 @@
 001D0386	0441 000D                  	SUB.w	#$000D, D1
 001D044C	0440 0096                  	SUB.w	#$0096, D0
 001D0466	0440 0064                  	SUB.w	#$0064, D0
-001E1712	4878 0000                  	PEA	$0.w
 001F0078	0040 000F                  	OR.w	#$000F, D0
 001F00AE	0040 000F                  	OR.w	#$000F, D0	;Predicted (Code-scan)
 001F15E0	0680 0000 0200             	ADD.l	#$00000200, D0
@@ -625,7 +624,6 @@
 001F1BDE	0680 0000 0080             	ADD.l	#$00000080, D0
 001F1BEA	0680 0000 0080             	ADD.l	#$00000080, D0
 001F310C	0680 0000 0250             	ADD.l	#$00000250, D0
-001F4CB8	4878 0000                  	PEA	$0.w
 001F539A	0640 0800                  	ADD.w	#$0800, D0	;Predicted (Code-scan)
 001F5980	0441 0060                  	SUB.w	#$0060, D1
 001F59B2	0441 0060                  	SUB.w	#$0060, D1
