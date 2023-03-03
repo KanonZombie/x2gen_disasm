@@ -27,7 +27,7 @@ ECHO [103;30m Compilando componentes (z80)                                     
 ECHO [103;30m                                                                                  [0m
 ECHO(
 
-..\asmTools\yaza driverz80\driverz80.z80
+..\asmTools\yaza driverz80\driverz80.z80 --list 
 REM  > research\salidaZ80.txt
 
 REM ECHO [104;93m**********************************************************************************[0m

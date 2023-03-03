@@ -1,11 +1,11 @@
-; X-Men 2 - Clone Wars (W) [!].bin
-; Taz-Mania.bin
 ; B.O.B.bin
+; Chakan - The Forever Man.bin
 ; Escape From Mars Starring Taz.bin
 ; Pink Goes to Hollywood.bin
 ; Spider-Man vs The Kingpin.bin
+; Taz-Mania.bin
 ; Wacky Worlds.bin
-; Chakan - The Forever Man.bin
+; X-Men 2 - Clone Wars (W) [!].bin
 
 loc_0015F3F0:
 ; recibe
@@ -53,6 +53,9 @@ loc_0015F436:
 	CMP.w	D3, D0
 	BEQ.b	loc_0015F4BA					; if d3 = d0 (puede que se la ultima vuelta)
 	BGT.w	loc_0015F4C8					; if d0 > d3
+	; menor o igual
+	; la diferencia la usa para buscar en 496
+
 	SUB.w	D0, D3							; d3 = d3 - d0
 	MOVE.w	D3, D0							; d0 = d3
 	ASL.w	#2, D0							; d0 = d0 * 4
