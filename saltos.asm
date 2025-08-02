@@ -936,7 +936,7 @@ SubrutinaNivel_BaniMazaB2_Exterior:
 	braself
 	JMP	$000608C8
 	braself
-	JMP	$000608E2
+	JMP	loc_000608E2
 	braself
 	JMP	$000618DE
 	braself
@@ -2879,9 +2879,8 @@ UbicacionArrayNightcrawler:
 UbicacionArrayPsylocke:
 	dc.l	loc_0011359A
 	braself
-	dc.b	$4E, $F9 ;0x0 (0x00002DB0-0x00002DB4, Entry count: 0x4) [Unknown data]
 UbicacionArrayWolverine:
-	dc.l	loc_0011369A
+	JMP		loc_0011369A
 	braself
 	dc.b	$4E, $F9 ;0x0 (0x00002DB8-0x00002DBC, Entry count: 0x4) [Unknown data]
 UbicacionArrayMagneto:

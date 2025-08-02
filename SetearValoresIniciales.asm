@@ -19,7 +19,7 @@ SetearValoresIniciales:
 	MOVE.w	#9, ram_offsetVidasActual2up(A5)	; C956 vidas actual p2
 
 	MOVEQ	#0, D1
-	MOVE.b	ram_offsetNivelSiberiaB1Blizzard(A5), D1	; setea Sibertia como		(C690 - index en array nivels)
+	MOVE.b	ram_offsetNivelSiberiaB1Blizzard(A5), D1	; setea Siberia como		(C690 - index en array nivels)
 	MOVE.w	D1, ram_offsetNivelActual(A5)				; nivel actual				(CC64)
 
 	MOVE.b	#1, -$38C2(A5)								; C93E

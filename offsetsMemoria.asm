@@ -8,33 +8,36 @@
 
 ram_Offset                  equ $FFFF0000-$200
 
-ram_offsetNivelActual	    equ ram_Offset+$CC64            ; CC64 -$359C(A5)
-ram_offsetNivelActualBack	equ ram_Offset+$C66E            ; C66E -$3B92(A5)
+ram_offsetPersonaje1up          	equ	ram_Offset+$C644
+ram_offsetPersonaje2up          	equ	ram_Offset+$C645
+ram_offsetSaludBack2up          	equ	ram_Offset+$C66A
+ram_offsetSaludBack         		equ	ram_Offset+$C66C
+ram_offsetNivelActualBack			equ ram_Offset+$C66E            ; C66E -$3B92(A5)
+ram_offsetAddressIndiceDEMO         equ	ram_Offset+$C670 ; -$3B90(A5)
+
+ram_offsetFlagInputParaDEMO             equ	ram_Offset+$C7E2 ; -$3A1E
+ram_offsetFlagEsDEMO                    equ	ram_Offset+$C7E6 ; -$3A1A(A5)
+
 ;ram_offsetNivelMagnetoJoin	equ -$3B7E
 ;ram_offsetVidasActual      	equ -$38A8  ;C958
-ram_offsetVidasActual       equ	ram_Offset+$C958
-ram_offsetVidasActual2up    equ	ram_Offset+$C956
+ram_offsetVidasActual      		equ	ram_Offset+$C958
+ram_offsetVidasActual2up   		equ	ram_Offset+$C956
+
+ram_offsetNivelActual	    equ ram_Offset+$CC64            ; CC64 -$359C(A5)
 
 ; C956 vidas 2up
 
-ram_offsetSaludBack             equ	ram_Offset+$C66C
 ram_offsetSaludActual           equ	ram_Offset+$EB10
 
 ;CLR.w	-$3B96(A5)							; C66A
 ;	MOVE.w	-$17E0(A5), ram_offsetSaludBack2up(A5)	;Predicted (Code-scan) RAM EA20 -> RAM C66A (si termian ok nivel no entra)
 ram_offsetSalud2up              equ	ram_Offset+$EA20
-ram_offsetSaludBack2up          equ	ram_Offset+$C66A
 
-ram_offsetPersonaje1up          equ	ram_Offset+$C644
-ram_offsetPersonaje2up          equ	ram_Offset+$C645
 
 ram_offsetAddressData1up        equ	ram_Offset+$EAA8 ;	MOVE.l	$2(A0), -$1758(A5)
 ram_offsetAddressData2up        equ	ram_Offset+$E9B8 ;	MOVE.l	$2(A0), -$1848(A5)
 
-ram_offsetAddressIndiceDEMO             equ	ram_Offset+$C670 ; -$3B90(A5)
 ram_offsetAddressFlagDesactivaSFX       equ	ram_Offset+$E954 ; -$18AC(A5)
-ram_offsetFlagEsDEMO                    equ	ram_Offset+$C7E6 ; -$3A1A(A5)
-ram_offsetFlagInputParaDEMO             equ	ram_Offset+$C7E2 ; -$3A1E
 
 ram_offsetArrayNiveles      	equ -$E52
 ram_offsetArrayNivelesCount   	equ -$E54
@@ -116,7 +119,7 @@ rom_offsetUbicacionArrayCyclops                 equ UbicacionArrayCyclops-$200-$
 rom_offsetUbicacionArrayGambit                  equ UbicacionArrayGambit-$200-$2
 rom_offsetUbicacionArrayNightcrawler            equ UbicacionArrayNightcrawler-$200-$2
 rom_offsetUbicacionArrayPsylocke                equ UbicacionArrayPsylocke-$200-$2
-rom_offsetUbicacionArrayWolverine               equ UbicacionArrayWolverine-$200-$2
+rom_offsetUbicacionArrayWolverine               equ UbicacionArrayWolverine-$200
 rom_offsetUbicacionArrayMagneto                 equ UbicacionArrayMagneto-$200-$2
 
 

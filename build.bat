@@ -57,7 +57,9 @@ ECHO [104;93m         ``                                                       
 ECHO(
 
 @md build\%fuenteBase% >nul 2>&1
-..\asmTools\asm68k /ow- /k /p /o ae- %binOrigen%.asm, build\%fuenteBase%\%binOrigen%.bin, , build\%fuenteBase%\%binOrigen%.lst
+..\asmTools\asm68k.exe /m /ow- /k /p /o ae- %binOrigen%.asm, build\%fuenteBase%\%binOrigen%.bin, , build\%fuenteBase%\%binOrigen%.lst
+
+REM ..\asmTools\clownassembler_asm68k.exe /p %binOrigen%.asm, build\%fuenteBase%\%binOrigen%.bin, , build\%fuenteBase%\%binOrigen%.lst
 
 FC "%binOrigen%.bin" "build\%fuenteBase%\%binOrigen%.bin" > research\diferencias.txt
 
@@ -70,4 +72,7 @@ ECHO(
 ECHO Diferencias esperadas: 1282
 ECHO(
 ..\asmTools\CheckSumFixer.exe  "build\%fuenteBase%\%binOrigen%.bin"
+ECHO(
+
+..\asmTools\crc32.exe "build\%fuenteBase%\%binOrigen%.bin"  -nf | find /c /v "7A1A6A36" | for /F "delims=" %%a in ('more') do @if %%a == 1 ( Echo [102;30mCRC Correcto[0m ) else ECHO [101;30mCRC incorrecto![0m 
 ECHO(

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>NemesisDecompressorUnified</AssemblyName>
+    <RootNamespace>X2Tools.Decompressor</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyTitle>X-Men 2 Clone Wars Nemesis Decompressor Unified</AssemblyTitle>
+    <AssemblyDescription>Descompresor Nemesis unificado que replica Compression.asm + loc_0015F5CA</AssemblyDescription>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+  </PropertyGroup>
+
+</Project>
