@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-
 namespace X2Tools.Decompressor
 {
     /// <summary>
@@ -116,12 +113,8 @@ namespace X2Tools.Decompressor
         /// </summary>
         /// <param name="filePath">Ruta del archivo a descomprimir</param>
         /// <returns>Datos descomprimidos</returns>
-        public static byte[] DecompressFile(string filePath)
+        public static byte[] DecompressFile(byte[] fileData)
         {
-            if (!File.Exists(filePath))
-                throw new FileNotFoundException($"Archivo no encontrado: {filePath}");
-
-            var fileData = File.ReadAllBytes(filePath);
             using var stream = new MemoryStream(fileData);
 
             var decompressor = new NemesisDecompressorUnified(stream);
@@ -185,10 +178,10 @@ namespace X2Tools.Decompressor
             // Algunos archivos Nemesis comienzan con un header de 2 bytes
             // Verificar si los primeros bytes son un header válido
             var position = reader.BaseStream.Position;
-            
+
             byte byte1 = reader.ReadByte();
             byte byte2 = reader.ReadByte();
-            
+
             // Si los primeros bytes parecen ser tabla Shannon-Fano válida (longitud 1-8), retroceder
             if (byte1 >= 1 && byte1 <= 8)
             {
@@ -536,7 +529,12 @@ namespace X2Tools.Decompressor
 
                 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-                byte[] decompressedData = DecompressFile(inputFile);
+                if (!File.Exists(inputFile))
+                    throw new FileNotFoundException($"Archivo no encontrado: {inputFile}");
+
+                var fileData = File.ReadAllBytes(inputFile);
+
+                byte[] decompressedData = DecompressFile(fileData);
 
                 stopwatch.Stop();
 
