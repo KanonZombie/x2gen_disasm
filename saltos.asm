@@ -932,7 +932,7 @@ SubrutinaNivel_BaniMazaB2_Exterior:
 	braself
 	JMP	$0005E0DA
 	braself
-	JMP	$0005F4F4
+	JMP	loc_0005F4F4    ; pantalla sega/titulo
 	braself
 	JMP	$000608C8
 	braself
