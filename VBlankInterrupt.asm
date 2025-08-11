@@ -1,0 +1,5 @@
+	MOVEM.l	A1/A0/D2/D1/D0, -(A7)
+	MOVEA.l	loc_00000210.w, A0
+	JSR	(A0)
+	MOVEM.l	(A7)+, D0/D1/D2/A0/A1
+	RTE

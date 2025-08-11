@@ -10,7 +10,7 @@ loc_00000240:						BRA.b	loc_00000240
 loc_00000248:						BRA.b	loc_00000248
 JMP_00006242:						JMP		loc_00006242
 	braself
-	JMP		$000062E4
+	JMP		loc_000062E4
 loc_00000258:
 	BRA.b	loc_00000258
 	JMP		loc_00006386
@@ -1778,7 +1778,7 @@ loc_00001B49:
 	dc.b	$4E, $F9, $00, $09, $B1, $68
 	braself
 	dc.b	$4E, $F9, $00, $09, $B1, $AC ;0x0 (0x00001C48-0x00001C6A, Entry count: 0x22) [Unknown data]
-	dc.b	$60, $FE ;0x20
+	braself
 	JMP	loc_0009B224
 	braself
 	JMP	loc_0009B968
@@ -2342,13 +2342,13 @@ SubrutinaNivel_SavageB1_Jungle_2:
 	braself
 	JMP	$000D32C2
 	braself
-	JMP	$000D3972
+	JMP	loc_000D3972
 	braself
 	JMP	$000DA5A8
 	braself
 	JMP	$000DA60E
 	braself
-	JMP	$000DACA6
+	JMP	loc_000DACA6
 	braself
 	JMP	$000DB702
 	braself
@@ -2803,7 +2803,7 @@ SubrutinaNivel_SpaceB1_Maintenance_Shaft:
 	dc.b	$4E, $F9, $00, $10, $B5, $D0
 	braself
 	dc.b	$4E, $F9, $00, $10, $B6, $72 ;0x0 (0x00002C80-0x00002CA2, Entry count: 0x22) [Unknown data]
-	dc.b	$60, $FE ;0x20
+	braself
 	JMP	loc_0010B6BE
 	braself
 SubrutinaNivel_SpaceA1_Space_Elevator:
@@ -2866,7 +2866,7 @@ SubrutinaNivel_SpaceA1_Space_Elevator:
 	JMP	loc_001131A0
 	braself
 	JMP	loc_0011329A
-	dc.b	$60, $FE
+	braself
 	dc.b	$4E, $F9 ;0x0 (0x00002D98-0x00002D9C, Entry count: 0x4) [Unknown data]
 UbicacionArrayBeast:
 	dc.l	loc_0011339A
@@ -2885,11 +2885,11 @@ UbicacionArrayWolverine:
 	dc.b	$4E, $F9 ;0x0 (0x00002DB8-0x00002DBC, Entry count: 0x4) [Unknown data]
 UbicacionArrayMagneto:
 	dc.l	loc_0011379A	; (Predicted offset)
-	dc.b	$60, $FE
+	braself
 	dc.b	$4E, $F9 ;0x0 (0x00002DC0-0x00002DC4, Entry count: 0x4) [Unknown data]
 UbicacionArrayGambit:
 	dc.l	loc_00113894
-	dc.b	$60, $FE
+	braself
 	dc.b	$4E, $F9 ;0x0 (0x00002DC8-0x00002DCC, Entry count: 0x4) [Unknown data]
 UbicacionArrayCyclops:
 	dc.l	loc_0011398E
@@ -3043,7 +3043,7 @@ UbicacionArrayCyclops:
 	dc.b	$4E, $F9, $00, $11, $87, $50
 	braself
 	dc.b	$4E, $F9, $00, $11, $87, $58 ;0x20
-	dc.b	$60, $FE ;0x40
+	braself
 	JMP	loc_00118760
 	braself	
 	JMP	loc_00118826
@@ -3341,7 +3341,7 @@ UbicacionArrayCyclops:
 	dc.b	$4E, $F9, $00, $11, $E4, $20
 	braself
 	dc.b	$4E, $F9, $00, $11, $E4, $80 ;0x0 (0x000034B0-0x000034D2, Entry count: 0x22) [Unknown data]
-	dc.b	$60, $FE ;0x20
+	braself
 	JMP	loc_0011E5E6
 	braself
 	dc.b	$4E, $F9, $00, $11, $E6, $18
@@ -3543,7 +3543,7 @@ UbicacionArrayCyclops:
 	dc.b	$4E, $F9, $00, $13, $38, $98
 	braself
 	dc.b	$4E, $F9, $00, $13, $38, $A8 ;0x20
-	dc.b	$60, $FE ;0x40
+	braself
 	JMP	loc_001339A6
 loc_00003800:
 	braself	
@@ -3686,7 +3686,7 @@ loc_00003800:
 	dc.b	$4E, $F9, $00, $13, $70, $9E
 	braself
 	dc.b	$4E, $F9, $00, $13, $70, $E8 ;0x20
-	dc.b	$60, $FE ;0x40
+	braself
 	JMP	loc_00137142
 	braself
 	JMP	loc_00137252
@@ -4082,7 +4082,7 @@ loc_00004010:
 	JMP	loc_001595EE
 	braself
 	dc.b	$4E, $F9, $00, $15, $98, $F6
-	braself ;0x0 (0x00004050-0x0000405A, Entry count: 0xA) [Unknown data]
+	braself
 	JMP	loc_00159A46
 	braself
 	JMP		loc_FLUXBOMB	;Predicted
@@ -4224,7 +4224,7 @@ SubrutinaRNGSeleccionPersonaje:	JMP	loc_0015C246
 	dc.b	$4E, $F9, $00, $15, $E2, $22
 	braself
 	dc.b	$4E, $F9, $00, $15, $E3, $D4 ;0x0 (0x00004270-0x00004292, Entry count: 0x22) [Unknown data]
-	dc.b	$60, $FE ;0x20
+	braself
 	JMP	loc_0015E410
 	braself
 	dc.b	$4E, $F9, $00, $15, $E4, $52
@@ -4521,7 +4521,7 @@ loc_0000438A:
 	dc.b	$4E, $F9, $00, $1A, $7A, $86
 	braself
 	dc.b	$4E, $F9, $00, $1A, $7B, $10 ;0x40
-	dc.b	$60, $FE ;0x60
+	braself
 	JMP	loc_001A7BFE
 	braself
 	dc.b	$4E, $F9, $00, $1A, $7C, $A4
@@ -4584,7 +4584,7 @@ loc_00004800:
 	dc.b	$4E, $F9, $00, $1B, $9D, $44
 	braself
 	dc.b	$4E, $F9, $00, $1B, $9D, $68 ;0x0 (0x00004800-0x00004822, Entry count: 0x22) [Unknown data]
-	dc.b	$60, $FE ;0x20
+	braself
 	JMP	loc_001B9E78
 	braself
 	dc.b	$4E, $F9, $00, $1B, $9F, $1E
@@ -4720,7 +4720,7 @@ loc_00004800:
 	dc.b	$4E, $F9, $00, $1C, $EB, $18
 	braself
 	dc.b	$4E, $F9, $00, $1C, $EB, $CC ;0x60
-	dc.b	$60, $FE ;0x80
+	braself
 	JMP	loc_001CEC28
 	braself	
 	JMP	loc_001CEC38
@@ -4882,7 +4882,7 @@ loc_00004800:
 	dc.b	$4E, $F9, $00, $1E, $2B, $48
 	braself
 	dc.b	$4E, $F9, $00, $1E, $2C, $1A ;0x0 (0x00004CA8-0x00004CCA, Entry count: 0x22) [Unknown data]
-	dc.b	$60, $FE ;0x20
+	braself
 	JMP	loc_001E2C3E
 	braself
 	dc.b	$4E, $F9, $00, $1E, $2C, $BC
@@ -4908,12 +4908,12 @@ loc_00004800:
 	dc.b	$4E, $F9, $00, $1E, $3B, $F2
 	braself
 	dc.b	$4E, $F9, $00, $1E, $3C, $52 ;0x40
-	dc.b	$60, $FE ;0x60
+	braself
 	JMP	loc_001E3C5A
 	braself	
 	JMP	loc_001E3C6A
 	braself
-	JMP	$001E3C74
+	JMP loc_001E3C74
 	braself
 	JMP	loc_1EDDAC ; justo despues de la primera tanda de sprites de Cyclops
 	braself
@@ -4950,7 +4950,7 @@ loc_00004800:
 	dc.b	$4E, $F9, $00, $1F, $0A, $94
 	braself
 	dc.b	$4E, $F9, $00, $1F, $13, $72 ;0x60
-	dc.b	$60, $FE ;0x80
+	braself
 	JMP	loc_001F13D0
 	braself	
 	JMP	loc_001F1424
@@ -5022,7 +5022,7 @@ loc_00004800:
 	dc.b	$4E, $F9, $00, $1F, $30, $44
 	braself
 	dc.b	$4E, $F9, $00, $1F, $30, $DC ;0x0 (0x00004ED8-0x00004EFA, Entry count: 0x22) [Unknown data]
-	dc.b	$60, $FE ;0x20
+	braself
 	JMP	loc_001F31F0
 	braself
 	dc.b	$4E, $F9, $00, $1F, $32, $26
@@ -5032,7 +5032,7 @@ loc_00004800:
 	dc.b	$4E, $F9, $00, $1F, $37, $F2
 	braself
 	dc.b	$4E, $F9, $00, $1F, $39, $C4 ;0x0 (0x00004F00-0x00004F22, Entry count: 0x22) [Unknown data]
-	dc.b	$60, $FE ;0x20
+	braself
 	JMP	loc_001F3C7C
 	braself
 	dc.b	$4E, $F9, $00, $1F, $3C, $D6
@@ -5050,7 +5050,7 @@ loc_00004800:
 	dc.b	$4E, $F9, $00, $1F, $41, $36
 	braself
 	dc.b	$4E, $F9, $00, $1F, $41, $3E ;0x20
-	dc.b	$60, $FE ;0x40
+	braself
 	JMP	loc_001F41C2
 	braself	
 	JMP	loc_001F429E

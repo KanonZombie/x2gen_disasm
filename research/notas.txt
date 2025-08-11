@@ -13,3 +13,5 @@ CYCLOPS
 GAMBIT
     F2  1111 0010       -14
 
+Ubicacion comp: 001F5740
+Fin decomp: 0015F58C

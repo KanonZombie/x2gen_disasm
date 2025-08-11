@@ -57,7 +57,8 @@ ECHO [104;93m         ``                                                       
 ECHO(
 
 @md build\%fuenteBase% >nul 2>&1
-..\asmTools\asm68k.exe /m /ow- /k /p /o ae- %binOrigen%.asm, build\%fuenteBase%\%binOrigen%.bin, , build\%fuenteBase%\%binOrigen%.lst
+..\asmTools\asm68k.exe /m /ow- /k /p /o ae- %binOrigen%.asm, build\%fuenteBase%\%binOrigen%.bin, build\%fuenteBase%\%binOrigen%.sym, build\%fuenteBase%\%binOrigen%.lst
+REM ..\asmTools\asm68k.exe /g /m /ow- /k /p /o ae- %binOrigen%.asm, build\%fuenteBase%\%binOrigen%.bin, build\%fuenteBase%\%binOrigen%.elf , build\%fuenteBase%\%binOrigen%.lst
 
 REM ..\asmTools\clownassembler_asm68k.exe /p %binOrigen%.asm, build\%fuenteBase%\%binOrigen%.bin, , build\%fuenteBase%\%binOrigen%.lst
 
