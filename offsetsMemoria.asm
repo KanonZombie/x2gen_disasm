@@ -64,6 +64,8 @@ ram_offsetNivelCerebroScreenLogoAndDemo     equ -$3B8A
 ram_offsetNivelCerebroScreenFailure         equ -$3B8C
 ram_offsetNivelCerebroScreenFinalText       equ -$3B8E
 
+ram_C5A2_FlagCheats                         equ -$3C5E
+
 ram_offsetLecturaPad_A     	equ -$7A8
 ram_offsetLecturaPad_B     	equ -$7A6
 

@@ -93,7 +93,7 @@ EjecutaDEMO:
 	JSR	$4ACA(A5)	;loc_001E2C3E
 	TST.b	-$38C6(A5)	;Predicted (Code-scan)
 	BEQ.b	loc_00005F0C	;Predicted (Code-scan)
-	ORI.w	#2, -$3C5E(A5)	;Predicted (Code-scan)
+	ORI.w	#2, ram_C5A2_FlagCheats(A5)	;Predicted (Code-scan)
 loc_00005F0C:
 	JSR	SetearValoresIniciales(PC)	;Predicted (Code-scan)
 
