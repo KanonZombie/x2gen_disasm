@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace X2Tools.Decompressor
 {
     /// <summary>
@@ -107,6 +109,7 @@ namespace X2Tools.Decompressor
         private uint longwordBuffer;     // D4 en assembly
         private int nibblePosition;      // D3 en assembly (8 -> 0)
         private List<byte> output;
+        private uint expectedOutputSize; // Tamaño esperado desde header
 
         /// <summary>
         /// Descomprime un archivo Nemesis completo
@@ -129,6 +132,7 @@ namespace X2Tools.Decompressor
             nibblePosition = 8;
             longwordBuffer = 0;
             output = new List<byte>();
+            expectedOutputSize = 0;
         }
 
         private byte[] DecompressInternal()
@@ -160,6 +164,22 @@ namespace X2Tools.Decompressor
                 Console.WriteLine();
                 Console.WriteLine($"=== DESCOMPRESIÓN COMPLETADA ===");
                 Console.WriteLine($"Datos descomprimidos: {output.Count} bytes");
+                
+                if (expectedOutputSize > 0)
+                {
+                    Console.WriteLine($"Tamaño esperado del header: {expectedOutputSize} bytes");
+                    if (output.Count != expectedOutputSize)
+                    {
+                        Console.WriteLine($"⚠️  ADVERTENCIA: Tamaño no coincide (diferencia: {output.Count - expectedOutputSize} bytes)");
+                    }
+                    
+                    // Truncar output al tamaño esperado si es necesario
+                    if (output.Count > expectedOutputSize)
+                    {
+                        Console.WriteLine($"Truncando output a {expectedOutputSize} bytes");
+                        return output.Take((int)expectedOutputSize).ToArray();
+                    }
+                }
 
                 return output.ToArray();
             }
@@ -171,27 +191,35 @@ namespace X2Tools.Decompressor
         }
 
         /// <summary>
-        /// Lee el header del archivo (puede contener tamaño u otra información)
+        /// Lee el header del archivo que contiene el tamaño en palabras de 32 bits de la secuencia descomprimida
+        /// Los primeros 2 bytes contienen el tamaño en palabras (16 bits, big-endian)
         /// </summary>
         private void ReadHeader()
         {
-            // Algunos archivos Nemesis comienzan con un header de 2 bytes
-            // Verificar si los primeros bytes son un header válido
+            // El header contiene el tamaño en palabras de 32 bits en los primeros 2 bytes
             var position = reader.BaseStream.Position;
 
+            // Leer los primeros 2 bytes como header
             byte byte1 = reader.ReadByte();
             byte byte2 = reader.ReadByte();
 
-            // Si los primeros bytes parecen ser tabla Shannon-Fano válida (longitud 1-8), retroceder
-            if (byte1 >= 1 && byte1 <= 8)
+            // Verificar si estos bytes parecen ser tabla Shannon-Fano directamente
+            if (byte1 >= 1 && byte1 <= 8 && byte2 != 0xFF)
             {
+                // Parece ser tabla Shannon-Fano directamente, retroceder
                 reader.BaseStream.Position = position;
-                Console.WriteLine("No se detectó header, comenzando directamente con tabla");
+                expectedOutputSize = 0; // Sin header, no hay límite conocido
+                Console.WriteLine("No se detectó header, comenzando directamente con tabla Shannon-Fano");
             }
             else
             {
-                ushort headerValue = (ushort)((byte1 << 8) | byte2);
-                Console.WriteLine($"Header detectado: 0x{headerValue:X4}");
+                // Formar el tamaño en palabras de 32 bits (16 bits en formato big-endian)
+                ushort decompressedSizeInWords = (ushort)((byte1 << 8) | byte2);
+                expectedOutputSize = (uint)(decompressedSizeInWords * 4); // Convertir palabras a bytes
+
+                Console.WriteLine($"Header de 2 bytes detectado:");
+                Console.WriteLine($"  Tamaño descomprimido: {decompressedSizeInWords} palabras ({expectedOutputSize} bytes)");
+                Console.WriteLine($"  Header raw: 0x{byte1:X2}{byte2:X2}");
             }
         }
 
@@ -283,6 +311,13 @@ namespace X2Tools.Decompressor
 
             while (reader.BaseStream.Position < reader.BaseStream.Length)
             {
+                // Si tenemos header y ya alcanzamos el tamaño esperado, parar
+                if (expectedOutputSize > 0 && output.Count >= expectedOutputSize)
+                {
+                    Console.WriteLine($"Tamaño objetivo alcanzado: {output.Count} bytes (esperado: {expectedOutputSize})");
+                    break;
+                }
+
                 try
                 {
                     // Extraer código de 8 bits con desplazamiento (D6 - 8)

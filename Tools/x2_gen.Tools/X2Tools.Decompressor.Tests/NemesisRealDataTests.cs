@@ -49,6 +49,34 @@ public class NemesisRealDataTests
     }
 
     [Fact]
+    public void DecompressRealData_WhenFilesAvailable_ShouldMatchVerified_BlizzardBG_leftover_data()
+    {
+        byte[]? originalData = TryLoadRealFile("BlizzardBG_comp.bin");
+        byte[]? expectedData = TryLoadRealFile("BlizzardBG.bin");
+        
+        // Create compressed data with extra bytes appended
+        byte[]? compressedData = null;
+        if (originalData != null)
+        {
+            compressedData = new byte[originalData.Length + 4]; // Add 4 extra bytes
+            Array.Copy(originalData, compressedData, originalData.Length);
+            // Add some dummy bytes at the end
+            compressedData[originalData.Length] = 0xFF;
+            compressedData[originalData.Length + 1] = 0xAA;
+            compressedData[originalData.Length + 2] = 0x55;
+            compressedData[originalData.Length + 3] = 0x00;
+        }
+
+        if (compressedData == null || expectedData == null)
+        {
+            Assert.Fail();
+        }
+
+        var actualOutput = NemesisDecompressorUnified.DecompressFile(compressedData);
+        Assert.Equal(expectedData, actualOutput);
+    }
+
+    [Fact]
     public void DecompressRealData_WhenAvailable_ShouldHaveExpectedFormat()
     {
         byte[]? compressedData = TryLoadRealFile(CompressedFileName);
