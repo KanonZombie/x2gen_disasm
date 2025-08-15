@@ -799,7 +799,8 @@ SubrutinaNivel_BaniMazaA2_ApocalypseBoss:
 	JMP	loc_0004E644
 loc_00000DC0:
 	braself
-	dc.b	$4E, $F9, $00, $04, $E8, $7C
+
+	JMP loc_0004E87C
 	braself
 	dc.b	$4E, $F9, $00, $04, $E8, $F2
 	braself ;0x0 (0x00000DC0-0x00000DD2, Entry count: 0x12) [Unknown data]
@@ -938,7 +939,7 @@ SubrutinaNivel_BaniMazaB2_Exterior:
 	braself
 	JMP	loc_000608E2
 	braself
-	JMP	$000618DE
+	JMP	loc_000618DE
 	braself
 	JMP	loc_00062D7A
 	braself

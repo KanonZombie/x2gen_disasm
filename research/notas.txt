@@ -15,3 +15,9 @@ GAMBIT
 
 Ubicacion comp: 001F5740
 Fin decomp: 0015F58C
+
+
+En FFFF4ACC se guarda los tiles calculados del zoom del titulo
+Levanta datos para escalar:
+001FC478 246E 0008                  	MOVEA.l	$8(A6), A2					; A2 = estructura base
+001FC47C D4EC 0006                  	ADDA.w	$6(A4), A2					; A2 = puntero a datos de este frame
